@@ -5,20 +5,27 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium cursor-pointer transition-[transform,background-color,border-color,box-shadow,color] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 select-none",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
-        destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
+        default:
+          "bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 active:scale-[0.98]",
+        destructive:
+          "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90 active:scale-[0.98]",
         outline:
-          "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
+          "border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground active:scale-[0.98]",
+        secondary:
+          "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80 active:scale-[0.98]",
+        ghost: "hover:bg-accent hover:text-accent-foreground active:scale-[0.98]",
         link: "text-primary underline-offset-4 hover:underline",
-        pill: "rounded-full bg-primary text-primary-foreground shadow-soft hover:bg-primary/90 hover:-translate-y-0.5 transition-all",
-        pillOutline: "rounded-full border border-primary/30 bg-transparent text-primary hover:bg-primary/5 transition-all",
-        pillLight: "rounded-full bg-background text-primary hover:bg-secondary transition-all",
+        pill: "rounded-full bg-primary text-primary-foreground shadow-soft hover:bg-primary/95 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
+        pillOutline:
+          "rounded-full border border-primary/30 bg-card/60 backdrop-blur-xs text-primary shadow-xs hover:border-primary hover:bg-primary/5 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
+        pillLight:
+          "rounded-full bg-white text-primary shadow-soft hover:bg-white/95 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
+        pillGlassDark:
+          "rounded-full border border-white/60 bg-white/12 backdrop-blur-md text-white shadow-sm hover:bg-white/22 hover:border-white/80 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
       },
       size: {
         default: "h-9 px-4 py-2",

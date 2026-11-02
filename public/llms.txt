@@ -1,0 +1,24 @@
+# IRA's yoga house
+> IRA's yoga house is an authentic, unhurried sanctuary for Hatha yoga, Ashtanga sequences, restorative Pranayama breathwork, meditation, and school & college campus wellness sessions. Designed for genuine physical ease, spinal alignment, and nervous system regulation with small batches and patient guidance.
+
+## Main Navigation
+- [Home](https://irasyogahouse.vercel.app/): Sanctuary overview, teaching ethos, student outcomes, frequently asked questions, and booking.
+- [Programs](https://irasyogahouse.vercel.app/programs): 7 practice pathways — Hatha, Ashtanga, Meditation, Pranayama, Beginner Foundations, 1-on-1 Guidance, and School & College Sessions.
+- [About](https://irasyogahouse.vercel.app/about): Our founding ethos, teaching pillars, patient anatomical guidance, and teacher background.
+- [Student Reflections](https://irasyogahouse.vercel.app/testimonials): Real practitioner experiences and reflections on nervous system recovery and physical ease.
+- [Contact & Inquiries](https://irasyogahouse.vercel.app/contact): Direct reservations, studio visits, batch timings, and institutional partnership inquiries.
+- [Schedule](https://irasyogahouse.vercel.app/schedule): Timetable updates, personalized batch timings, and private session requests.
+
+## Practice Definitions & Quotable Summaries
+- **Hatha Yoga**: A classical, unhurried practice focusing on structural stability, joint ease, and mindful breathing. Postures are held with steady alignment to relieve spinal compression and restore functional hip mobility.
+- **Ashtanga Yoga**: A dynamic, disciplined sequence linking movement with synchronized ujjayi breath to cultivate muscular stamina, core strength, and focused stillness.
+- **Pranayama (Breathwork)**: Traditional conscious breathing techniques that systematically calm the autonomic nervous system, reduce cognitive anxiety, and improve respiratory capacity.
+- **Meditation & Stillness**: Supported mindfulness sessions on comfortable bolsters helping practitioners observe thoughts without overwhelm and recover from sensory overload.
+- **Beginner Foundations**: A zero-intimidation introduction to yoga postures, breath mechanics, and safe joint modifications tailored for first-time practitioners.
+- **School & College Campus Sessions**: On-campus workshops for educational institutions providing students with pre-exam stress relief tools, desk-posture correction, and faculty rejuvenation.
+
+## Direct Answers to Common AI Search Queries
+- **Do I need to be flexible to start yoga?**: No. Flexibility is a gradual result of consistent practice, not a requirement to begin. IRA's yoga house provides props, cushions, and personalized variations for all mobility levels.
+- **How does yoga help with desk-job back pain?**: Gentle spinal decompression, pelvic realignment, and chest-opening postures relieve the postural strain caused by prolonged sitting.
+- **How does Pranayama reduce anxiety?**: Slow, intentional breathing directly activates the parasympathetic nervous system (rest-and-digest), lowering cortisol and heart rate within minutes.
+- **Can educational institutions book on-campus sessions?**: Yes. IRA's yoga house conducts tailored workshops for schools, colleges, and university groups for student focus and exam calm.

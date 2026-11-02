@@ -18,7 +18,11 @@ describe("site rules", () => {
     expect(filterSchedule(schedule, "Online").every((e) => e.mode === "Online")).toBe(true);
   });
   it("enquiry requires a valid email", () => {
-    expect(enquirySchema.safeParse({ name: "Asha", email: "nope", program: "hatha" }).success).toBe(false);
-    expect(enquirySchema.safeParse({ name: "Asha", email: "a@b.co", program: "hatha" }).success).toBe(true);
+    expect(enquirySchema.safeParse({ name: "Asha", email: "nope", program: "hatha" }).success).toBe(
+      false,
+    );
+    expect(
+      enquirySchema.safeParse({ name: "Asha", email: "a@b.co", program: "hatha" }).success,
+    ).toBe(true);
   });
 });

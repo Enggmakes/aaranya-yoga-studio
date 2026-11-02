@@ -1,123 +1,100 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { Check, Clock, MapPin, Monitor } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight, Calendar, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { PageHero, SectionHeading, DemoBadge } from "@/components/layout";
+import { PageHero } from "@/components/layout";
 import { useBooking } from "@/components/booking";
-import { days, filterSchedule, packages, programName, programs, schedule, type ScheduleFilter } from "@/data/site";
 
 export const Route = createFileRoute("/schedule")({
   head: () => ({
     meta: [
-      { title: "Class Schedule — Aaranya Yoga Studio" },
-      { name: "description", content: "Weekly yoga, meditation and pranayama timetable with times, durations, studio or online options and prices." },
-      { property: "og:title", content: "Weekly Class Schedule — Aaranya" },
-      { property: "og:description", content: "Find a class time that fits your week." },
+      { title: "Class Schedule & Timings — IRA's yoga house" },
+      {
+        name: "description",
+        content:
+          "View the upcoming class schedule and batch timings at IRA's yoga house. Reserve your preferred morning or evening batch or inquire about private sessions.",
+      },
+      {
+        name: "keywords",
+        content:
+          "yoga class schedule, yoga batch timings, morning yoga classes, evening yoga sessions, studio timetable",
+      },
+      { property: "og:title", content: "Class Schedule & Timings — IRA's yoga house" },
+      {
+        property: "og:description",
+        content:
+          "Batch timings and timetable updates for IRA's yoga house. Reserve your spot in an upcoming morning or evening batch.",
+      },
+      { property: "og:url", content: "https://irasyogahouse.vercel.app/schedule" },
+      { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://irasyogahouse.vercel.app/assets/hero.jpg" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Class Schedule & Timings — IRA's yoga house" },
+      {
+        name: "twitter:description",
+        content:
+          "Batch timings and timetable updates for IRA's yoga house. Reserve your spot in an upcoming morning or evening batch.",
+      },
+      { name: "twitter:image", content: "https://irasyogahouse.vercel.app/assets/hero.jpg" },
     ],
+    links: [{ rel: "canonical", href: "https://irasyogahouse.vercel.app/schedule" }],
   }),
   component: SchedulePage,
 });
 
-const filters: { value: ScheduleFilter; label: string }[] = [
-  { value: "all", label: "All classes" },
-  ...programs.map((p) => ({ value: p.id as ScheduleFilter, label: p.name })),
-  { value: "Studio", label: "In studio" },
-  { value: "Online", label: "Online" },
-];
-
 function SchedulePage() {
-  const [filter, setFilter] = useState<ScheduleFilter>("all");
   const { openBooking } = useBooking();
-  const rows = filterSchedule(schedule, filter);
 
   return (
     <>
-      <PageHero eyebrow="Schedule" title="Your week, gently held" intro="Choose a class that fits your rhythm. Times and prices below are sample data and will be updated by the studio." />
-      <section className="container-x pb-20">
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <div role="group" aria-label="Filter classes" className="flex flex-wrap gap-2">
-            {filters.map((f) => (
-              <button key={f.value} aria-pressed={filter === f.value} onClick={() => setFilter(f.value)}
-                className="rounded-full border px-4 py-2 text-sm transition-colors hover:border-primary aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-primary-foreground">
-                {f.label}
-              </button>
-            ))}
+      <PageHero
+        eyebrow="Studio Timetable"
+        title="Schedule Coming Soon"
+        intro="We are currently curating and finalizing the seasonal class timetable and batch timings for IRA's yoga house."
+      />
+
+      <section className="container-x max-w-4xl pb-32">
+        <div className="rounded-[2.75rem] p-2 bg-black/[0.02] ring-1 ring-black/[0.06] shadow-bezel">
+          <div className="rounded-[calc(2.75rem-0.5rem)] bg-card p-8 sm:p-14 text-center shadow-soft">
+            <div className="mx-auto grid size-16 place-items-center rounded-full bg-accent/60 text-primary ring-1 ring-olive/20 shadow-xs">
+              <Calendar className="size-8" aria-hidden />
+            </div>
+
+            <h2 className="mt-6 font-serif font-semibold text-3xl sm:text-4xl text-primary">
+              Batch Timings Are Being Finalized
+            </h2>
+
+            <p className="mx-auto mt-4 max-w-xl text-muted-foreground leading-relaxed">
+              Our schedule is being shaped thoughtfully around our practitioners. If you would like
+              to reserve a spot in an upcoming batch, request private one-to-one sessions, or
+              register your preferred timing, please reach out directly.
+            </p>
+
+            <div className="mt-10 flex flex-wrap justify-center gap-4">
+              <Button
+                variant="pill"
+                size="xl"
+                onClick={() => openBooking()}
+                className="group pr-4 pl-7"
+              >
+                <span>Inquire About Classes</span>
+                <span className="grid size-7 place-items-center rounded-full bg-primary-foreground/15 text-primary-foreground transition-transform duration-200 group-hover:translate-x-0.5">
+                  <ArrowRight className="size-3.5" />
+                </span>
+              </Button>
+              <Button asChild variant="pillOutline" size="xl">
+                <Link to="/programs">
+                  Explore Programs <ArrowRight className="size-4" />
+                </Link>
+              </Button>
+              <Button asChild variant="pillOutline" size="xl">
+                <Link to="/contact">
+                  <MessageSquare className="size-4" /> Contact Us
+                </Link>
+              </Button>
+            </div>
           </div>
-          <DemoBadge>Demo timetable</DemoBadge>
-        </div>
-
-        <p className="sr-only" aria-live="polite">{rows.length} classes shown</p>
-
-        <div className="mt-8 hidden overflow-hidden rounded-3xl border bg-card md:block">
-          <table className="w-full text-left text-sm">
-            <thead className="bg-secondary/70 text-xs uppercase tracking-wider text-muted-foreground">
-              <tr>{["Day", "Class", "Time", "Duration", "Mode", "Price", ""].map((h, i) => <th key={i} scope="col" className="px-5 py-4 font-medium">{h}</th>)}</tr>
-            </thead>
-            <tbody className="divide-y">
-              {rows.map((r, i) => (
-                <tr key={i} className="transition-colors hover:bg-muted/60">
-                  <td className="px-5 py-4 font-medium">{r.day}</td>
-                  <td className="px-5 py-4 font-serif text-lg text-primary">{programName(r.program)}</td>
-                  <td className="px-5 py-4">{r.time}</td>
-                  <td className="px-5 py-4 text-muted-foreground">{r.duration}</td>
-                  <td className="px-5 py-4"><ModeTag mode={r.mode} /></td>
-                  <td className="px-5 py-4">{r.price}</td>
-                  <td className="px-5 py-4 text-right"><Button variant="pillOutline" size="sm" className="px-4" onClick={() => openBooking(r.program)}>Book</Button></td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
-        <div className="mt-8 grid gap-8 md:hidden">
-          {days.map((d) => {
-            const list = rows.filter((r) => r.day === d);
-            if (!list.length) return null;
-            return (
-              <div key={d}>
-                <h2 className="text-2xl text-primary">{d}</h2>
-                <ul className="mt-3 grid gap-3">
-                  {list.map((r, i) => (
-                    <li key={i} className="rounded-2xl border bg-card p-4">
-                      <div className="flex items-start justify-between gap-2">
-                        <div>
-                          <p className="font-serif text-xl text-primary">{programName(r.program)}</p>
-                          <p className="mt-1 flex items-center gap-1.5 text-sm text-muted-foreground"><Clock className="size-3.5" aria-hidden />{r.time} · {r.duration}</p>
-                        </div>
-                        <span className="text-sm font-medium">{r.price}</span>
-                      </div>
-                      <div className="mt-3 flex items-center justify-between"><ModeTag mode={r.mode} /><Button variant="pillOutline" size="sm" className="px-4" onClick={() => openBooking(r.program)}>Book</Button></div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            );
-          })}
-        </div>
-        {rows.length === 0 && <p className="mt-8 text-muted-foreground">No classes match this filter yet.</p>}
-      </section>
-
-      <section className="bg-secondary/60 py-20">
-        <div className="container-x">
-          <SectionHeading eyebrow="Packages" title="Simple ways to practise regularly" center intro="Sample pricing — the studio will confirm current rates." />
-          <ul className="mt-12 grid gap-6 md:grid-cols-3">
-            {packages.map((p) => (
-              <li key={p.name} className={`flex flex-col rounded-3xl p-8 ${p.featured ? "bg-primary text-primary-foreground" : "bg-card"}`}>
-                <h3 className="text-2xl">{p.name}</h3>
-                <p className="mt-4 font-serif text-5xl">{p.price}</p>
-                <p className={`text-sm ${p.featured ? "text-primary-foreground/75" : "text-muted-foreground"}`}>{p.note}</p>
-                <ul className="mt-6 grid flex-1 gap-2 text-sm">{p.perks.map((x) => <li key={x} className="flex gap-2"><Check className="size-4" aria-hidden />{x}</li>)}</ul>
-                <Button variant={p.featured ? "pillLight" : "pill"} size="xl" className="mt-8" onClick={() => openBooking()}>Enquire</Button>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
     </>
   );
-}
-
-function ModeTag({ mode }: { mode: "Studio" | "Online" }) {
-  const Icon = mode === "Studio" ? MapPin : Monitor;
-  return <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/60 px-3 py-1 text-xs text-accent-foreground"><Icon className="size-3" aria-hidden />{mode}</span>;
 }

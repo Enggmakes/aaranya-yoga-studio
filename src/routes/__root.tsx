@@ -73,6 +73,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         name: "viewport",
         content: "width=device-width, initial-scale=1, viewport-fit=cover",
       },
+      {
+        name: "google-site-verification",
+        content: "0kTPQr-W8_RfiJnKA2evK3f87uQO0oCH7Fmb-2Aj2WI",
+      },
       { name: "theme-color", content: "#FAF8F5" },
       { title: "IRA's yoga house — Authentic Yoga & Breathwork Sanctuary" },
       {
@@ -223,6 +227,10 @@ function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
+        <meta
+          name="google-site-verification"
+          content="0kTPQr-W8_RfiJnKA2evK3f87uQO0oCH7Fmb-2Aj2WI"
+        />
         <HeadContent />
         <script
           type="application/ld+json"

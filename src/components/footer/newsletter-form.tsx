@@ -35,11 +35,23 @@ export function NewsletterForm() {
             email: cleanEmail,
             subject: `[Newsletter Signup] New subscriber: ${cleanEmail}`,
             from_name: "IRA's Yoga House Newsletter",
-            message: `New subscriber joined the newsletter: ${cleanEmail}`,
+            message: `A new practitioner has subscribed to the IRA's Yoga House newsletter:\n\nEmail: ${cleanEmail}\nSubscribed at: ${new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })}`,
+            botcheck: "",
           }),
         });
       } else {
-        await new Promise((resolve) => setTimeout(resolve, 600));
+        await fetch(`https://formsubmit.co/ajax/${studio.email}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            Email: cleanEmail,
+            _subject: `[Newsletter Signup] New subscriber: ${cleanEmail}`,
+            Message: `A new practitioner has subscribed to the IRA's Yoga House newsletter: ${cleanEmail}`,
+          }),
+        });
       }
       setStatus("success");
       setMessage("Thank you for joining our circle. May your practice flourish.");

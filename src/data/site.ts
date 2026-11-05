@@ -14,12 +14,17 @@ export const siteUrl = "https://irasyogahouse.vercel.app";
 
 export const studio = {
   name: "IRA's yoga house",
-  phone: "[Add phone number]",
-  email: "[Add email address]",
-  address: "[Add studio address]",
+  phone: "+91 78755 99173",
+  email: "yogsagar66@gmail.com",
+  address: "Pune, Maharashtra",
   hours: "Mon – Sat: 6:30 AM – 8:30 PM | Sun: 8:00 AM – 1:00 PM",
-  whatsappNumber: "", // e.g. "919800000000"
-  mapEmbedUrl: "", // paste a Google Maps embed URL once the address is final
+  whatsappNumber: "917875599173",
+  mapEmbedUrl:
+    "https://maps.google.com/maps?q=Pune%2C%20Maharashtra&t=&z=12&ie=UTF8&iwloc=&output=embed",
+  web3FormsAccessKey:
+    (typeof import.meta !== "undefined" && import.meta.env?.VITE_WEB3FORMS_ACCESS_KEY) ||
+    (typeof process !== "undefined" && process.env?.VITE_WEB3FORMS_ACCESS_KEY) ||
+    "",
 };
 
 export function whatsappLink(
@@ -145,7 +150,7 @@ export const programs: Program[] = [
   },
 ];
 
-export type Mode = "Studio" | "Online";
+export type Mode = "On-site" | "Online";
 export type ScheduleEntry = {
   day: string;
   program: ProgramId;
@@ -156,25 +161,25 @@ export type ScheduleEntry = {
 
 export const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 export const schedule: ScheduleEntry[] = [
-  { day: "Monday", program: "hatha", time: "07:00", duration: "60 min", mode: "Studio" },
+  { day: "Monday", program: "hatha", time: "07:00", duration: "60 min", mode: "On-site" },
   { day: "Monday", program: "meditation", time: "19:00", duration: "45 min", mode: "Online" },
-  { day: "Tuesday", program: "ashtanga", time: "06:30", duration: "75 min", mode: "Studio" },
-  { day: "Tuesday", program: "beginner", time: "18:00", duration: "60 min", mode: "Studio" },
+  { day: "Tuesday", program: "ashtanga", time: "06:30", duration: "75 min", mode: "On-site" },
+  { day: "Tuesday", program: "beginner", time: "18:00", duration: "60 min", mode: "On-site" },
   { day: "Wednesday", program: "pranayama", time: "07:00", duration: "45 min", mode: "Online" },
-  { day: "Wednesday", program: "hatha", time: "18:30", duration: "60 min", mode: "Studio" },
-  { day: "Thursday", program: "ashtanga", time: "06:30", duration: "75 min", mode: "Studio" },
-  { day: "Thursday", program: "meditation", time: "19:30", duration: "45 min", mode: "Studio" },
+  { day: "Wednesday", program: "hatha", time: "18:30", duration: "60 min", mode: "On-site" },
+  { day: "Thursday", program: "ashtanga", time: "06:30", duration: "75 min", mode: "On-site" },
+  { day: "Thursday", program: "meditation", time: "19:30", duration: "45 min", mode: "On-site" },
   { day: "Friday", program: "beginner", time: "08:00", duration: "60 min", mode: "Online" },
-  { day: "Friday", program: "pranayama", time: "18:00", duration: "45 min", mode: "Studio" },
-  { day: "Saturday", program: "hatha", time: "08:30", duration: "75 min", mode: "Studio" },
+  { day: "Friday", program: "pranayama", time: "18:00", duration: "45 min", mode: "On-site" },
+  { day: "Saturday", program: "hatha", time: "08:30", duration: "75 min", mode: "On-site" },
   {
     day: "Saturday",
     program: "personal",
     time: "By appointment",
     duration: "60 min",
-    mode: "Studio",
+    mode: "On-site",
   },
-  { day: "Sunday", program: "meditation", time: "09:00", duration: "60 min", mode: "Studio" },
+  { day: "Sunday", program: "meditation", time: "09:00", duration: "60 min", mode: "On-site" },
   {
     day: "Sunday",
     program: "personal",
@@ -187,7 +192,7 @@ export const schedule: ScheduleEntry[] = [
 export type ScheduleFilter = "all" | ProgramId | Mode;
 export function filterSchedule(entries: ScheduleEntry[], filter: ScheduleFilter) {
   if (filter === "all") return entries;
-  if (filter === "Studio" || filter === "Online") return entries.filter((e) => e.mode === filter);
+  if (filter === "On-site" || filter === "Online") return entries.filter((e) => e.mode === filter);
   return entries.filter((e) => e.program === filter);
 }
 
@@ -200,7 +205,7 @@ export const packages = [
   {
     name: "Flexible Class Pack",
     note: "Batch passes",
-    perks: ["Mix and match between studio & online", "Valid across all group programs"],
+    perks: ["Mix and match between on-site & online", "Valid across all group programs"],
     featured: true,
   },
   {
@@ -263,7 +268,7 @@ export const instructors = [
 
 export const stats = [
   { value: "6", label: "Specialized Programs" },
-  { value: "Studio & Online", label: "Practice Formats" },
+  { value: "On-site & Online", label: "Practice Formats" },
   { value: "Small", label: "Attentive Batch Sizes" },
   { value: "All Levels", label: "Warmly Welcomed" },
 ];

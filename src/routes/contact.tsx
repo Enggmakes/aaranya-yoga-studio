@@ -67,14 +67,15 @@ export const Route = createFileRoute("/contact")({
 function Contact() {
   const wa = whatsappLink(studio.whatsappNumber);
   const details = [
-    { icon: MapPin, label: "Studio Sanctuary", value: studio.address },
-    { icon: Phone, label: "Phone", value: studio.phone },
-    { icon: Mail, label: "Email", value: studio.email },
-    { icon: Clock, label: "Practice Hours", value: studio.hours },
+    { icon: MapPin, label: "Location", value: studio.address, href: undefined },
+    { icon: Phone, label: "Phone", value: studio.phone, href: `tel:${studio.phone.replace(/\s+/g, "")}` },
+    { icon: Mail, label: "Email", value: studio.email, href: `mailto:${studio.email}` },
+    { icon: Clock, label: "Practice Hours", value: studio.hours, href: undefined },
     {
       icon: GraduationCap,
       label: "Campus Sessions",
       value: "On-campus workshops for schools, colleges & universities",
+      href: undefined,
     },
   ];
 
@@ -107,7 +108,7 @@ function Contact() {
         <aside className="grid content-start gap-6">
           <div className="rounded-[2.5rem] p-1.5 bg-black/[0.02] ring-1 ring-black/[0.05]">
             <ul className="grid gap-4 rounded-[calc(2.5rem-0.375rem)] bg-secondary/70 p-8 shadow-xs">
-              {details.map(({ icon: Icon, label, value }) => (
+              {details.map(({ icon: Icon, label, value, href }) => (
                 <li key={label} className="flex gap-4">
                   <span className="grid size-10 shrink-0 place-items-center rounded-full bg-card text-primary shadow-xs">
                     <Icon className="size-4" aria-hidden />
@@ -116,7 +117,16 @@ function Contact() {
                     <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">
                       {label}
                     </p>
-                    <p className="mt-0.5 text-sm font-medium text-foreground">{value}</p>
+                    {href ? (
+                      <a
+                        href={href}
+                        className="mt-0.5 block text-sm font-medium text-foreground hover:text-primary hover:underline transition-colors"
+                      >
+                        {value}
+                      </a>
+                    ) : (
+                      <p className="mt-0.5 text-sm font-medium text-foreground">{value}</p>
+                    )}
                   </div>
                 </li>
               ))}
@@ -141,24 +151,42 @@ function Contact() {
           ) : (
             <div className="flex items-center gap-2.5 rounded-full border border-dashed border-border bg-card/60 px-6 py-4 text-sm text-muted-foreground">
               <MessageCircle className="size-4 text-olive" aria-hidden />
-              <span>WhatsApp chat will be available once studio number is added.</span>
+              <span>WhatsApp chat will be available once contact number is added.</span>
             </div>
           )}
 
           {studio.mapEmbedUrl ? (
-            <iframe
-              title="Studio location map"
-              src={studio.mapEmbedUrl}
-              className="aspect-[4/3] w-full rounded-[2rem] border-0 shadow-xs"
-              loading="lazy"
-            />
+            <div className="overflow-hidden rounded-[2.25rem] border border-border/80 bg-card shadow-soft ring-1 ring-black/[0.04]">
+              <iframe
+                title="Location map — Pune, Maharashtra"
+                src={studio.mapEmbedUrl}
+                className="aspect-[4/3] w-full border-0"
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+              <div className="flex items-center justify-between gap-3 border-t border-border/60 bg-secondary/40 px-5 py-3.5 text-xs text-muted-foreground">
+                <span className="flex items-center gap-2 font-medium text-foreground">
+                  <MapPin className="size-3.5 text-olive shrink-0" aria-hidden />
+                  <span>Pune, Maharashtra</span>
+                </span>
+                <a
+                  href="https://maps.google.com/?q=Pune,+Maharashtra"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-primary hover:underline"
+                >
+                  Open in Maps ↗
+                </a>
+              </div>
+            </div>
           ) : (
             <div className="grid aspect-[4/3] place-items-center rounded-[2.5rem] border border-dashed border-border bg-muted/60 p-6 text-center text-sm text-muted-foreground">
               <div>
                 <MapPin className="mx-auto size-8 text-olive" aria-hidden />
-                <p className="mt-2 font-medium">Studio Location Map</p>
+                <p className="mt-2 font-medium">Pune, Maharashtra</p>
                 <p className="mt-1 text-xs text-muted-foreground">
-                  The interactive Google Map will appear once the address is configured.
+                  Serving practitioners across Pune with on-site sessions and live interactive online batches.
                 </p>
               </div>
             </div>

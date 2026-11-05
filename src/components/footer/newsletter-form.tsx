@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowRight, CheckCircle2, Loader2, Mail } from "lucide-react";
+import { studio } from "@/data/site";
 
 export function NewsletterForm() {
   const [email, setEmail] = useState("");
@@ -22,8 +23,24 @@ export function NewsletterForm() {
     setMessage("");
 
     try {
-      // Integration point for newsletter API / CRM
-      await new Promise((resolve) => setTimeout(resolve, 800));
+      if (studio.web3FormsAccessKey) {
+        await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            access_key: studio.web3FormsAccessKey,
+            email: cleanEmail,
+            subject: `[Newsletter Signup] New subscriber: ${cleanEmail}`,
+            from_name: "IRA's Yoga House Newsletter",
+            message: `New subscriber joined the newsletter: ${cleanEmail}`,
+          }),
+        });
+      } else {
+        await new Promise((resolve) => setTimeout(resolve, 600));
+      }
       setStatus("success");
       setMessage("Thank you for joining our circle. May your practice flourish.");
       setEmail("");

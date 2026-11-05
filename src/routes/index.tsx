@@ -21,15 +21,15 @@ export const faqs = [
   },
   {
     q: "What should I wear and bring to my first session?",
-    a: "Wear comfortable, stretchy clothing that allows you to breathe and move freely. High-grade non-toxic mats, meditation cushions, straps, and blocks are all provided in the studio. Just bring a water bottle.",
+    a: "Wear comfortable, stretchy clothing that allows you to breathe and move freely. High-grade non-toxic mats, meditation cushions, straps, and blocks are all provided for on-site sessions. Just bring a water bottle.",
   },
   {
     q: "Can I practice if I have neck, lower back, or joint stiffness?",
     a: "Yes. Many of our practitioners come specifically to ease physical tension. Please let your teacher know before class so we can tailor gentle posture variations that keep your joints completely safe.",
   },
   {
-    q: "What is the difference between studio and online classes?",
-    a: "Studio classes take place in our serene, distraction-free sanctuary. Online classes are streamed live in small batches with interactive cues, allowing you to practice in the comfort of your home.",
+    q: "What is the difference between on-site and online classes?",
+    a: "On-site classes take place in person with hands-on posture guidance. Online classes are streamed live in small batches with interactive cues, allowing you to practice in the comfort of your home.",
   },
   {
     q: "Do you offer sessions or workshops for schools and colleges?",
@@ -193,7 +193,7 @@ function Home() {
             </div>
             <div className="flex items-center gap-2 text-xs font-medium text-foreground/80">
               <CheckCircle2 className="size-4 text-olive shrink-0" />
-              <span>Studio & Online</span>
+              <span>On-site & Online</span>
             </div>
             <div className="flex items-center gap-2 text-xs font-medium text-foreground/80">
               <CheckCircle2 className="size-4 text-olive shrink-0" />

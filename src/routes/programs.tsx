@@ -189,7 +189,7 @@ function Programs() {
                 <div className="flex items-center justify-between">
                   <span className="eyebrow">{active.level}</span>
                   <span className="inline-flex items-center gap-1 text-xs text-olive font-medium">
-                    <Sparkles className="size-3.5" /> Studio & Online
+                    <Sparkles className="size-3.5" /> On-site & Online
                   </span>
                 </div>
                 <DialogTitle className="font-serif text-3xl font-medium text-primary mt-1">
@@ -211,7 +211,7 @@ function Programs() {
                   ))}
                   <li className="flex items-start gap-2.5">
                     <Check className="size-4 text-olive shrink-0 mt-0.5" aria-hidden />
-                    <span>Mats, cushions, bolsters, and straps are provided in studio.</span>
+                    <span>Mats, cushions, bolsters, and straps are provided for on-site sessions.</span>
                   </li>
                 </ul>
               </div>

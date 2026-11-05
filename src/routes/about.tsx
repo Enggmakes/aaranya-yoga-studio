@@ -175,18 +175,18 @@ function About() {
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
             <SectionHeading
-              eyebrow="The Studio Environment"
+              eyebrow="The Practice Environment"
               title="A sensory sanctuary designed to soothe"
             />
             <p className="mt-4 text-muted-foreground leading-relaxed">
               Every detail in IRA&apos;s yoga house has been intentionally chosen to help your body
-              down-regulate from the moment you step through our doors:
+              down-regulate from the moment you begin your practice:
             </p>
             <ul className="mt-6 grid gap-3.5 text-sm text-foreground/80">
               <li className="flex items-start gap-3">
                 <CheckCircle2 className="size-4 text-olive shrink-0 mt-0.5" />
                 <span>
-                  Natural timber flooring and gentle daylight filtered through linen curtains
+                  Calming natural ambiance and gentle daylight filtered through linen curtains
                 </span>
               </li>
               <li className="flex items-start gap-3">
@@ -195,7 +195,7 @@ function About() {
               </li>
               <li className="flex items-start gap-3">
                 <CheckCircle2 className="size-4 text-olive shrink-0 mt-0.5" />
-                <span>Organic cotton bolsters, natural cork blocks, and sanitized studio mats</span>
+                <span>Organic cotton bolsters, natural cork blocks, and sanitized practice mats</span>
               </li>
               <li className="flex items-start gap-3">
                 <CheckCircle2 className="size-4 text-olive shrink-0 mt-0.5" />

@@ -1,6 +1,6 @@
 import { createContext, useCallback, useContext, useState, type ReactNode } from "react";
 import { z } from "zod";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { CheckCircle2, ArrowRight, Loader2 } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -9,7 +9,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { programs, type ProgramId } from "@/data/site";
+import { programs, studio, whatsappLink, type ProgramId } from "@/data/site";
 
 export const enquirySchema = z.object({
   name: z.string().trim().min(2, "Please enter your name").max(100),
@@ -48,9 +48,10 @@ export function EnquiryForm({
   compact?: boolean;
 }) {
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [status, setStatus] = useState<"idle" | "sent" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [waFallbackUrl, setWaFallbackUrl] = useState<string | null>(null);
 
-  function submit(e: React.FormEvent<HTMLFormElement>) {
+  async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.currentTarget));
     const parsed = enquirySchema.safeParse(data);
@@ -62,8 +63,76 @@ export function EnquiryForm({
       return;
     }
     setErrors({});
+    setStatus("sending");
+
+    const programObj = programs.find((p) => p.id === parsed.data.program);
+    const programTitle = programObj
+      ? programObj.name
+      : parsed.data.program === "general"
+        ? "General / Beginner Inquiry"
+        : parsed.data.program;
+
+    // 1. Prepare WhatsApp message & trigger new tab immediately within user action
+    const waMessage = [
+      `*New Yoga Class Enquiry — ${studio.name}*`,
+      `• *Name:* ${parsed.data.name}`,
+      `• *Program:* ${programTitle}`,
+      parsed.data.phone ? `• *Phone:* ${parsed.data.phone}` : null,
+      `• *Email:* ${parsed.data.email}`,
+      parsed.data.message ? `• *Note:* ${parsed.data.message}` : null,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    const waUrl = whatsappLink(studio.whatsappNumber, waMessage);
+    if (waUrl) {
+      setWaFallbackUrl(waUrl);
+      if (typeof window !== "undefined") {
+        window.open(waUrl, "_blank", "noopener,noreferrer");
+      }
+    }
+
+    // 2. Dispatch email notification in background via Web3Forms
+    try {
+      if (studio.web3FormsAccessKey) {
+        await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            access_key: studio.web3FormsAccessKey,
+            name: parsed.data.name,
+            email: parsed.data.email,
+            phone: parsed.data.phone || "Not provided",
+            program: programTitle,
+            message: parsed.data.message || "No additional message provided",
+            subject: `New Yoga Class Inquiry from ${parsed.data.name} (${programTitle})`,
+          }),
+        });
+      } else {
+        await fetch(`https://formsubmit.co/ajax/${studio.email}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            Name: parsed.data.name,
+            Email: parsed.data.email,
+            Phone: parsed.data.phone || "Not provided",
+            Program: programTitle,
+            Message: parsed.data.message || "No additional note provided",
+            _subject: `New Yoga Class Enquiry — ${parsed.data.name} (${programTitle})`,
+          }),
+        });
+      }
+    } catch (err) {
+      console.warn("Email dispatch note:", err);
+    }
+
     setStatus("sent");
-    e.currentTarget.reset();
   }
 
   if (status === "sent")
@@ -73,11 +142,21 @@ export function EnquiryForm({
         className="flex flex-col items-center gap-3 rounded-2xl border border-border/60 bg-secondary/70 p-8 text-center shadow-xs"
       >
         <CheckCircle2 className="size-10 text-primary" aria-hidden />
-        <h3 className="font-serif text-2xl text-primary">Thank you for reaching out</h3>
+        <h3 className="font-serif text-2xl text-primary">Thank you for contacting us</h3>
         <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
-          Your enquiry has been received. Our teachers will get back to you promptly with batch
-          details.
+          Your enquiry has been received and WhatsApp has been opened. Our teachers will get back to
+          you promptly.
         </p>
+        {waFallbackUrl && (
+          <a
+            href={waFallbackUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-primary/80 underline underline-offset-4 hover:text-primary transition-colors"
+          >
+            Didn&apos;t open? Tap here to send on WhatsApp →
+          </a>
+        )}
         <div className="flex gap-2 pt-3">
           <Button variant="pillOutline" onClick={() => setStatus("idle")}>
             Send another
@@ -210,11 +289,16 @@ export function EnquiryForm({
         type="submit"
         variant="pill"
         size="xl"
+        disabled={status === "sending"}
         className="justify-self-start group pr-4 pl-7 shadow-soft mt-1"
       >
-        <span>Send Enquiry</span>
+        <span>{status === "sending" ? "Sending Details…" : "Send Enquiry"}</span>
         <span className="grid size-7 place-items-center rounded-full bg-primary-foreground/15 text-primary-foreground transition-transform duration-200 group-hover:translate-x-0.5">
-          <ArrowRight className="size-3.5" />
+          {status === "sending" ? (
+            <Loader2 className="size-3.5 animate-spin" />
+          ) : (
+            <ArrowRight className="size-3.5" />
+          )}
         </span>
       </Button>
     </form>

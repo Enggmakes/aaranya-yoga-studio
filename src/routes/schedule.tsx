@@ -16,7 +16,7 @@ export const Route = createFileRoute("/schedule")({
       {
         name: "keywords",
         content:
-          "yoga class schedule, yoga batch timings, morning yoga classes, evening yoga sessions, studio timetable",
+          "yoga class schedule, yoga batch timings, morning yoga classes, evening yoga sessions, on-site yoga schedule, class timetable",
       },
       { property: "og:title", content: "Class Schedule & Timings — IRA's yoga house" },
       {
@@ -47,7 +47,7 @@ function SchedulePage() {
   return (
     <>
       <PageHero
-        eyebrow="Studio Timetable"
+        eyebrow="Class Timetable"
         title="Schedule Coming Soon"
         intro="We are currently curating and finalizing the seasonal class timetable and batch timings for IRA's yoga house."
       />

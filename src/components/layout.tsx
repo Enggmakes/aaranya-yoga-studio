@@ -267,7 +267,7 @@ export function SectionHeading({
   );
 }
 
-export function DemoBadge({ children = "Studio note" }: { children?: string }) {
+export function DemoBadge({ children = "Practice note" }: { children?: string }) {
   return (
     <span className="inline-flex items-center rounded-full border border-olive/30 bg-accent/50 px-3 py-1 text-xs font-medium text-accent-foreground">
       {children}

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useBooking } from "@/components/booking";
 import { studio } from "@/data/site";
 import yogaLogo from "@/assets/yoga-logo.png";
+import { BotanicalBackground } from "@/components/botanical-background";
 
 export const navItems = [
   { to: "/", label: "Home" },
@@ -245,23 +246,14 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section className="relative overflow-hidden pt-6 pb-12 sm:pt-10 sm:pb-16 lg:pt-14 lg:pb-20 bg-gradient-to-b from-[#FFFDF9] via-[#FAF8F5] to-[#FAF8F5]">
-      {/* Warm organic ambient background halos */}
-      <div
-        className="pointer-events-none absolute -top-32 right-0 size-96 rounded-full bg-[#B69A58]/12 blur-3xl"
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute bottom-0 left-0 size-80 rounded-full bg-[#2A3828]/6 blur-3xl"
-        aria-hidden="true"
-      />
-
+    <BotanicalBackground className="pt-6 pb-14 sm:pt-10 sm:pb-20 lg:pt-16 lg:pb-24 border-b border-[#B69A58]/20">
       <div className="container-x relative">
         {image ? (
           <div className="grid items-center gap-8 lg:grid-cols-[1.15fr_1.05fr] lg:gap-14">
-            <div className="fade-up order-2 lg:order-1">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#B69A58]/40 bg-[#FFFDF9] px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#777B50] shadow-xs">
-                <Sparkles className="size-3.5 text-[#B69A58]" />
+            {/* Text & CTAs: Always First in DOM and Mobile Flow */}
+            <div className="fade-up order-1">
+              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#777B50]">
+                <Sparkles className="size-3.5 text-[#B69A58] shrink-0" aria-hidden="true" />
                 <span>{eyebrow}</span>
               </div>
 
@@ -276,7 +268,8 @@ export function PageHero({
               {children && <div className="mt-7 sm:mt-9">{children}</div>}
             </div>
 
-            <div className="fade-up order-1 lg:order-2">
+            {/* Media Card: Second in Mobile Flow, Right Column on Desktop */}
+            <div className="fade-up order-2">
               <div className="relative overflow-hidden rounded-[2.25rem] border border-[#B69A58]/40 bg-[#FFFDF9] shadow-[0_20px_45px_-12px_rgba(24,56,32,0.18)]">
                 <img
                   src={image}
@@ -301,8 +294,8 @@ export function PageHero({
           </div>
         ) : (
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#B69A58]/40 bg-[#FFFDF9] px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#777B50] shadow-xs">
-              <Sparkles className="size-3.5 text-[#B69A58]" />
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#777B50]">
+              <Sparkles className="size-3.5 text-[#B69A58] shrink-0" aria-hidden="true" />
               <span>{eyebrow}</span>
             </div>
 
@@ -318,7 +311,7 @@ export function PageHero({
           </div>
         )}
       </div>
-    </section>
+    </BotanicalBackground>
   );
 }
 

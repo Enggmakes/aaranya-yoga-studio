@@ -26,6 +26,7 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { serviceSolutions, type ServiceSolution } from "@/data/site";
+import { BotanicalBranch, FlaticonLotus } from "@/components/footer/lotus-art";
 
 function getServiceIcon(iconName: ServiceSolution["iconName"]) {
   switch (iconName) {
@@ -51,26 +52,49 @@ export function ServicesSection() {
   const { openBooking } = useBooking();
 
   return (
-    <section id="services" className="relative py-24 sm:py-32 bg-[#FAF8F5] overflow-hidden">
-      {/* Subtle organic background glows */}
+    <section id="services" className="relative py-24 sm:py-32 bg-[#FAF8F5] overflow-hidden isolate border-y border-[#B69A58]/20">
+      {/* 1. Warm organic background glows */}
       <div
-        className="pointer-events-none absolute -top-40 right-0 size-96 rounded-full bg-[#B69A58]/10 blur-3xl"
+        className="pointer-events-none absolute -top-40 right-0 -z-10 size-[36rem] rounded-full bg-[radial-gradient(circle_at_center,rgba(182,154,88,0.14)_0%,transparent_70%)] blur-3xl"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute bottom-0 left-0 size-96 rounded-full bg-[#2A3828]/5 blur-3xl"
+        className="pointer-events-none absolute bottom-0 left-0 -z-10 size-[32rem] rounded-full bg-[radial-gradient(circle_at_center,rgba(40,65,45,0.06)_0%,transparent_70%)] blur-3xl"
         aria-hidden="true"
       />
+
+      {/* 2. Soft Lotus Watermark in the background */}
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2 opacity-[0.035]"
+        aria-hidden="true"
+      >
+        <FlaticonLotus className="size-[32rem] sm:size-[40rem]" color="#B69A58" />
+      </div>
+
+      {/* 3. Subtle botanical branches entering from the side */}
+      <div
+        className="pointer-events-none absolute top-4 -right-4 -z-10 opacity-30 transition-opacity"
+        aria-hidden="true"
+      >
+        <BotanicalBranch side="right" className="h-28 w-36 sm:h-36 sm:w-48" />
+      </div>
+      <div
+        className="pointer-events-none absolute bottom-4 -left-4 -z-10 opacity-30 transition-opacity"
+        aria-hidden="true"
+      >
+        <BotanicalBranch side="left" className="h-28 w-36 sm:h-36 sm:w-48" />
+      </div>
 
       <div className="container-x relative">
         {/* Section Heading & Positioning */}
         <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#B69A58]/40 bg-[#FFFDF9] px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#777B50] shadow-xs">
-            <Sparkles className="size-3.5 text-[#B69A58]" />
+          {/* Seamless Typographic Eyebrow (No Clunky White Box) */}
+          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#777B50]">
+            <Sparkles className="size-3.5 text-[#B69A58] shrink-0" aria-hidden="true" />
             <span>Problem → Solution Architecture</span>
           </div>
 
-          <h2 className="mt-5 font-['Cormorant_Garamond',Georgia,serif] text-3xl font-medium tracking-tight text-[#142F1C] sm:text-4xl lg:text-5xl">
+          <h2 className="mt-4 font-['Cormorant_Garamond',Georgia,serif] text-3xl font-medium tracking-tight text-[#142F1C] sm:text-4xl lg:text-5xl">
             Science-Based Wellness That Delivers Measurable Results
           </h2>
 

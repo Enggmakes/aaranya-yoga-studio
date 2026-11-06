@@ -28,11 +28,9 @@ export function SiteFooter() {
             <LotusNavigation />
           </div>
 
-          {/* C. Newsletter Section — Right (Social icons removed per user request) */}
+          {/* C. Newsletter Section — Right (Sanctuary Card) */}
           <div className="flex w-full justify-center lg:justify-end">
-            <div className="flex flex-col items-center text-center lg:items-start lg:text-left lg:border-l lg:border-[#B69A58]/35 lg:pl-8 xl:pl-12">
-              <NewsletterForm />
-            </div>
+            <NewsletterForm />
           </div>
         </div>
       </div>

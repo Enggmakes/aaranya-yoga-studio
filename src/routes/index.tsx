@@ -15,6 +15,7 @@ import { SectionHeading } from "@/components/layout";
 import { useBooking } from "@/components/booking";
 import { TestimonialCarousel } from "@/components/testimonial-carousel";
 import { ServicesSection } from "@/components/services-section";
+import { BotanicalBackground } from "@/components/botanical-background";
 import {
   Accordion,
   AccordionContent,
@@ -115,13 +116,14 @@ function Home() {
 
   return (
     <>
-      {/* Hero Section — Exact Client Brief */}
-      <section className="relative overflow-hidden pt-6 pb-16 sm:pt-10 sm:pb-20 lg:pt-16 lg:pb-28">
+      {/* Hero Section — Exact Client Brief with Signature Sanctuary Background */}
+      <BotanicalBackground className="pt-6 pb-16 sm:pt-10 sm:pb-20 lg:pt-16 lg:pb-28">
         <div className="container-x grid items-center gap-8 lg:grid-cols-[1.1fr_1.1fr] lg:gap-14">
-          <div className="fade-up order-2 lg:order-1">
-            {/* Pill Eyebrow */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#B69A58]/50 bg-[#FFFDF9] px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#777B50] shadow-xs">
-              <Sparkles className="size-3.5 text-[#B69A58]" />
+          {/* Text & Primary Actions: Always First on All Screens */}
+          <div className="fade-up order-1">
+            {/* Seamless Typographic Eyebrow (No Clunky White Box) */}
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#777B50]">
+              <Sparkles className="size-3.5 text-[#B69A58] shrink-0" aria-hidden="true" />
               <span>Science-Based Institutional Wellness</span>
             </div>
 
@@ -184,8 +186,8 @@ function Home() {
             </div>
           </div>
 
-          {/* Hero Media Container */}
-          <div className="fade-up order-1 lg:order-2">
+          {/* Hero Media Container: Follows text on mobile, right column on desktop */}
+          <div className="fade-up order-2">
             <div className="relative overflow-hidden rounded-3xl border border-[#B69A58]/40 bg-[#FFFDF9] shadow-[0_20px_45px_-12px_rgba(24,56,32,0.18)]">
               <img
                 src={campus}
@@ -207,7 +209,7 @@ function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </BotanicalBackground>
 
       {/* 3 Dedicated Audience Pillars Gateway */}
       <section className="bg-[#F5EBDD]/70 py-12 sm:py-16 border-y border-[#B69A58]/30">

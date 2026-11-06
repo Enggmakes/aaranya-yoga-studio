@@ -27,6 +27,31 @@ import {
 } from "@/components/ui/dialog";
 import { serviceSolutions, type ServiceSolution } from "@/data/site";
 import { BotanicalBranch, FlaticonLotus } from "@/components/footer/lotus-art";
+import schoolsHero from "@/assets/schools-hero.jpg";
+import corporateHero from "@/assets/corporate-hero.jpg";
+import tratakHero from "@/assets/tratak-hero.jpg";
+import meditation from "@/assets/meditation.jpg";
+import pranayama from "@/assets/pranayama.jpg";
+import hatha from "@/assets/hatha.jpg";
+
+function getServicePoster(iconName: ServiceSolution["iconName"]) {
+  switch (iconName) {
+    case "cyclic":
+      return schoolsHero;
+    case "yoganidra":
+      return meditation;
+    case "tratak":
+      return tratakHero;
+    case "chairyoga":
+      return corporateHero;
+    case "pranayama":
+      return pranayama;
+    case "suryanamaskar":
+      return hatha;
+    default:
+      return meditation;
+  }
+}
 
 function getServiceIcon(iconName: ServiceSolution["iconName"]) {
   switch (iconName) {
@@ -220,17 +245,51 @@ export function ServicesSection() {
             </DialogHeader>
 
             <div className="mt-4 space-y-5 text-sm text-[#4E5C48]">
-              {/* 30-sec Video / Audio Preview Placeholder Card */}
-              <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-[#B69A58]/40 bg-gradient-to-br from-[#183820] to-[#102A1B] p-6 text-center text-[#FFF8EC] flex flex-col items-center justify-center shadow-inner">
-                <span className="grid size-14 place-items-center rounded-full bg-[#B69A58] text-[#102A1B] shadow-md transition-transform hover:scale-110 cursor-pointer">
-                  <Play className="size-6 ml-1 fill-current" />
-                </span>
-                <p className="mt-3 font-serif text-lg font-medium text-[#FFF8EC]">
-                  30-Second Practice Walkthrough
-                </p>
-                <p className="text-xs text-[#E2C783] max-w-sm">
-                  Experience how {selectedService.name} is taught in classrooms and conference rooms.
-                </p>
+              {/* Photorealistic 30-Second Practice Walkthrough Video Preview */}
+              <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-[#B69A58]/50 shadow-[0_12px_32px_rgba(24,56,32,0.18)] group isolate bg-[#102A1B]">
+                {/* Photorealistic Video Backdrop from Real Practice Photography */}
+                <img
+                  src={getServicePoster(selectedService.iconName)}
+                  alt={`${selectedService.name} practice walkthrough video preview`}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#102A1B]/95 via-[#102A1B]/45 to-black/35" />
+
+                {/* Top Video Streaming Header: Live Status + 0:30 HD Tag */}
+                <div className="absolute top-3 left-3 right-3 flex items-center justify-between text-[11px] font-semibold text-[#FFF8EC] z-10">
+                  <span className="rounded-full bg-black/60 backdrop-blur-md px-3 py-1 border border-white/20 flex items-center gap-1.5 shadow-sm">
+                    <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="tracking-wider uppercase text-[10px]">Practice Walkthrough</span>
+                  </span>
+                  <span className="rounded-full bg-black/60 backdrop-blur-md px-3 py-1 border border-white/20 tracking-wider">
+                    0:30 HD
+                  </span>
+                </div>
+
+                {/* Center Cinematic Play Button with Liquid Ripple Glow */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-[#FFF8EC] z-10">
+                  <span className="group/btn relative grid size-16 place-items-center rounded-full bg-[#B69A58] text-[#102A1B] shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer">
+                    <span className="absolute -inset-2 rounded-full bg-[#B69A58]/35 animate-ping opacity-60" />
+                    <Play className="size-7 ml-1 fill-current" />
+                  </span>
+                  <p className="mt-3 font-['Cormorant_Garamond',Georgia,serif] text-xl font-medium text-[#FFF8EC] drop-shadow-md">
+                    30-Second Practice Walkthrough
+                  </p>
+                  <p className="mt-1 text-xs text-[#E2D4BF] max-w-sm drop-shadow-sm">
+                    Experience how {selectedService.name} is taught in classrooms and conference rooms.
+                  </p>
+                </div>
+
+                {/* Bottom Video Progress Scrub Bar */}
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-3 pt-6 z-10">
+                  <div className="h-1.5 w-full bg-white/25 rounded-full overflow-hidden backdrop-blur-sm">
+                    <div className="h-full w-2/5 bg-[#B69A58] rounded-full transition-all duration-300" />
+                  </div>
+                  <div className="mt-1.5 flex items-center justify-between text-[10px] text-white/70">
+                    <span>0:12</span>
+                    <span>0:30</span>
+                  </div>
+                </div>
               </div>
 
               {/* What It Is */}

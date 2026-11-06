@@ -12,9 +12,12 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CorporateRouteImport } from './routes/corporate'
 import { Route as ProgramsRouteImport } from './routes/programs'
 import { Route as ScheduleRouteImport } from './routes/schedule'
+import { Route as SchoolsRouteImport } from './routes/schools'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
+import { Route as TratakRouteImport } from './routes/tratak'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -31,6 +34,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CorporateRoute = CorporateRouteImport.update({
+  id: '/corporate',
+  path: '/corporate',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProgramsRoute = ProgramsRouteImport.update({
   id: '/programs',
   path: '/programs',
@@ -41,9 +49,19 @@ const ScheduleRoute = ScheduleRouteImport.update({
   path: '/schedule',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SchoolsRoute = SchoolsRouteImport.update({
+  id: '/schools',
+  path: '/schools',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TestimonialsRoute = TestimonialsRouteImport.update({
   id: '/testimonials',
   path: '/testimonials',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TratakRoute = TratakRouteImport.update({
+  id: '/tratak',
+  path: '/tratak',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -51,50 +69,82 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/corporate': typeof CorporateRoute
   '/programs': typeof ProgramsRoute
   '/schedule': typeof ScheduleRoute
+  '/schools': typeof SchoolsRoute
   '/testimonials': typeof TestimonialsRoute
+  '/tratak': typeof TratakRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/corporate': typeof CorporateRoute
   '/programs': typeof ProgramsRoute
   '/schedule': typeof ScheduleRoute
+  '/schools': typeof SchoolsRoute
   '/testimonials': typeof TestimonialsRoute
+  '/tratak': typeof TratakRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/corporate': typeof CorporateRoute
   '/programs': typeof ProgramsRoute
   '/schedule': typeof ScheduleRoute
+  '/schools': typeof SchoolsRoute
   '/testimonials': typeof TestimonialsRoute
+  '/tratak': typeof TratakRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/about' | '/contact' | '/programs' | '/schedule' | '/testimonials'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/corporate'
+    | '/programs'
+    | '/schedule'
+    | '/schools'
+    | '/testimonials'
+    | '/tratak'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/programs' | '/schedule' | '/testimonials'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/corporate'
+    | '/programs'
+    | '/schedule'
+    | '/schools'
+    | '/testimonials'
+    | '/tratak'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/contact'
+    | '/corporate'
     | '/programs'
     | '/schedule'
+    | '/schools'
     | '/testimonials'
+    | '/tratak'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  CorporateRoute: typeof CorporateRoute
   ProgramsRoute: typeof ProgramsRoute
   ScheduleRoute: typeof ScheduleRoute
+  SchoolsRoute: typeof SchoolsRoute
   TestimonialsRoute: typeof TestimonialsRoute
+  TratakRoute: typeof TratakRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -120,6 +170,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/corporate': {
+      id: '/corporate'
+      path: '/corporate'
+      fullPath: '/corporate'
+      preLoaderRoute: typeof CorporateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/programs': {
       id: '/programs'
       path: '/programs'
@@ -134,11 +191,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ScheduleRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/schools': {
+      id: '/schools'
+      path: '/schools'
+      fullPath: '/schools'
+      preLoaderRoute: typeof SchoolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/testimonials': {
       id: '/testimonials'
       path: '/testimonials'
       fullPath: '/testimonials'
       preLoaderRoute: typeof TestimonialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tratak': {
+      id: '/tratak'
+      path: '/tratak'
+      fullPath: '/tratak'
+      preLoaderRoute: typeof TratakRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -148,9 +219,12 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  CorporateRoute: CorporateRoute,
   ProgramsRoute: ProgramsRoute,
   ScheduleRoute: ScheduleRoute,
+  SchoolsRoute: SchoolsRoute,
   TestimonialsRoute: TestimonialsRoute,
+  TratakRoute: TratakRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

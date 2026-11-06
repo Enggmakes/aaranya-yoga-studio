@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { PageHero } from "@/components/layout";
 import { useBooking } from "@/components/booking";
+import { ServicesSection } from "@/components/services-section";
 import { programs, type Program } from "@/data/site";
 
 const programsSchema = {
@@ -89,6 +90,9 @@ function Programs() {
         title="Pathways to restore body & mind"
         intro="Whether you are arriving on the mat for the very first time, deepening a steady daily practice, or seeking wellness sessions for your school or college, there is a patient, unhurried session waiting for you."
       />
+
+      {/* 6 Problem -> Solution Services Matrix */}
+      <ServicesSection />
 
       <section className="container-x grid gap-10 pb-16 sm:gap-14 sm:pb-28">
         {programs.map((p, i) => (

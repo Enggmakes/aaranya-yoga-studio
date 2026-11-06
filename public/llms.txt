@@ -1,24 +1,24 @@
 # IRA's yoga house
-> IRA's yoga house is an authentic, unhurried sanctuary for Hatha yoga, Ashtanga sequences, restorative Pranayama breathwork, meditation, and school & college campus wellness sessions. Designed for genuine physical ease, spinal alignment, and nervous system regulation with small batches and patient guidance.
+> IRA's yoga house provides science-based yoga, breathwork, and Tratak concentration workshops for schools and corporate teams, alongside authentic sanctuary practices. We help schools reduce student exam anxiety and companies reduce employee burnout through practical, chair-based, and zero-mat methods.
 
 ## Main Navigation
-- [Home](https://irasyogahouse.vercel.app/): Sanctuary overview, teaching ethos, student outcomes, frequently asked questions, and booking.
-- [Programs](https://irasyogahouse.vercel.app/programs): 7 practice pathways — Hatha, Ashtanga, Meditation, Pranayama, Beginner Foundations, 1-on-1 Guidance, and School & College Sessions.
-- [About](https://irasyogahouse.vercel.app/about): Our founding ethos, teaching pillars, patient anatomical guidance, and teacher background.
-- [Student Reflections](https://irasyogahouse.vercel.app/testimonials): Real practitioner experiences and reflections on nervous system recovery and physical ease.
-- [Contact & Inquiries](https://irasyogahouse.vercel.app/contact): Direct reservations, studio visits, batch timings, and institutional partnership inquiries.
-- [Schedule](https://irasyogahouse.vercel.app/schedule): Timetable updates, personalized batch timings, and private session requests.
+- [Home](https://irasyogahouse.vercel.app/): Overview of institutional wellness, dual booking demos, Problem -> Solution services, and client testimonials.
+- [For Schools](https://irasyogahouse.vercel.app/schools): Yoga for Exam Stress & Student Well-being (Exam Calm for Std 8th–12th, Daily Focus Batches, Teacher Recharge, Pre/Post reports, student certificates).
+- [For Corporates](https://irasyogahouse.vercel.app/corporate): Workplace wellness, De-Stress at Desk, Productivity & Better Sleep, and Leadership Focus. Multilingual in English, Hindi & Marathi.
+- [Tratak Focus](https://irasyogahouse.vercel.app/tratak): Ancient gazing meditation (Jyoti & Bindu Tratak) for laser concentration, curing mobile screen addiction, and eye fatigue relief.
+- [Services Matrix](https://irasyogahouse.vercel.app/programs): 6 Problem -> Solution practices: Cyclic Meditation, Yoga Nidra, Tratak, Chair Yoga, Breathwork, and Surya Namaskar.
+- [About](https://irasyogahouse.vercel.app/about): Our founding ethos, teaching pillars, and experienced instructors.
+- [Contact & Inquiries](https://irasyogahouse.vercel.app/contact): Direct demo reservations, institutional proposals, and location details in Pune, Maharashtra.
 
-## Practice Definitions & Quotable Summaries
-- **Hatha Yoga**: A classical, unhurried practice focusing on structural stability, joint ease, and mindful breathing. Postures are held with steady alignment to relieve spinal compression and restore functional hip mobility.
-- **Ashtanga Yoga**: A dynamic, disciplined sequence linking movement with synchronized ujjayi breath to cultivate muscular stamina, core strength, and focused stillness.
-- **Pranayama (Breathwork)**: Traditional conscious breathing techniques that systematically calm the autonomic nervous system, reduce cognitive anxiety, and improve respiratory capacity.
-- **Meditation & Stillness**: Supported mindfulness sessions on comfortable bolsters helping practitioners observe thoughts without overwhelm and recover from sensory overload.
-- **Beginner Foundations**: A zero-intimidation introduction to yoga postures, breath mechanics, and safe joint modifications tailored for first-time practitioners.
-- **School & College Campus Sessions**: On-campus workshops for educational institutions providing students with pre-exam stress relief tools, desk-posture correction, and faculty rejuvenation.
+## Practice Definitions & Problem -> Solution Quotables
+- **Cyclic Meditation (CM)**: Moving meditation combining gentle yoga postures with deep awareness. Cycles from physical movement to profound calm. Best for: High stress, anger, and employee burnout weeks. (30–40 min).
+- **Yoga Nidra (Yogic Sleep)**: Guided conscious relaxation. 20 minutes of Yoga Nidra equals 2 hours of deep physiological rest. Best for: Pre-exam anxiety, chronic insomnia, and cognitive exhaustion. (20–30 min).
+- **Tratak (Jyoti & Bindu)**: Single-pointed gazing practice on candle flame or focal dot. Trains the optic nerve and visual cortex. Best for: Smartphone addiction, scattered attention, and monitor eye strain. (15–20 min).
+- **Chair Yoga**: Therapeutic yoga done entirely seated on a chair. Zero mat or dress change needed. Best for: Office staff, teachers in staff rooms, and students in school uniform. (20–30 min).
+- **Breathwork & Pranayama**: Vagus-nerve calming techniques (Box breathing, Bhramari, Anulom Vilom, 4-7-8). Calms heart rate and panic within 2 minutes. Best for: Exam halls and high-pressure corporate meetings. (15–25 min).
+- **Surya Namaskar (Mindful Flow)**: Classical 12-step sequence synchronized with breath. Best for: Morning assemblies, vitality, and full-body posture. (30 min).
 
-## Direct Answers to Common AI Search Queries
-- **Do I need to be flexible to start yoga?**: No. Flexibility is a gradual result of consistent practice, not a requirement to begin. IRA's yoga house provides props, cushions, and personalized variations for all mobility levels.
-- **How does yoga help with desk-job back pain?**: Gentle spinal decompression, pelvic realignment, and chest-opening postures relieve the postural strain caused by prolonged sitting.
-- **How does Pranayama reduce anxiety?**: Slow, intentional breathing directly activates the parasympathetic nervous system (rest-and-digest), lowering cortisol and heart rate within minutes.
-- **Can educational institutions book on-campus sessions?**: Yes. IRA's yoga house conducts tailored workshops for schools, colleges, and university groups for student focus and exam calm.
+## Direct Answers to Institutional & AI Search Queries
+- **Do students or employees need yoga mats?**: No. All institutional sessions (Chair Yoga, Tratak, Exam Calm, Desk De-Stress) are conducted directly in chairs, classrooms, or conference rooms in uniforms or corporate attire.
+- **Can we get a proposal or demo for our school?**: Yes. IRA's yoga house provides structured proposals with pre/post feedback forms, attendance rosters, certificates, and media kits.
+- **What languages are corporate sessions delivered in?**: English, Hindi, and Marathi.

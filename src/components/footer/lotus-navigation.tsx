@@ -18,40 +18,39 @@ const NAV_ITEMS: FooterNavItem[] = [
     to: "/",
     iconName: "home",
     angle: -90, // Straight Up (12 o'clock)
-    description: "Sanctuary overview & booking",
+    description: "Sanctuary overview & institutional demos",
   },
   {
-    id: "programs",
-    label: "Programs",
-    to: "/programs",
+    id: "schools",
+    label: "Schools",
+    to: "/schools",
     iconName: "programs",
     angle: -18, // Top-Right (72° clockwise from Home)
-    description: "7 authentic yoga pathways",
+    description: "Exam calm & student focus batches",
   },
   {
     id: "contact",
     label: "Contact",
     to: "/contact",
     iconName: "contact",
-    angle: 54, // Bottom-Right (72° clockwise from Programs)
-    description: "Inquiries and batch reservations",
+    angle: 54, // Bottom-Right (72° clockwise from Schools)
+    description: "Book demo sessions & inquiries",
   },
   {
-    id: "retreats",
-    label: "Retreats",
-    to: "/programs#campus",
-    iconName: "retreats",
-    angle: 126, // Bottom-Left (72° clockwise from Contact)
-    description: "School, college & retreat workshops",
-    isAction: true,
-  },
-  {
-    id: "about",
-    label: "About",
-    to: "/about",
+    id: "corporate",
+    label: "Corporate",
+    to: "/corporate",
     iconName: "about",
-    angle: 198, // Top-Left (72° clockwise from Retreats)
-    description: "Ethos, teachers and philosophy",
+    angle: 126, // Bottom-Left (72° clockwise from Contact)
+    description: "Workplace desk yoga & burnout recovery",
+  },
+  {
+    id: "tratak",
+    label: "Tratak",
+    to: "/tratak",
+    iconName: "retreats",
+    angle: 198, // Top-Left (72° clockwise from Corporate)
+    description: "Gazing meditation for sharp concentration",
   },
 ];
 

@@ -8,9 +8,11 @@ import yogaLogo from "@/assets/yoga-logo.png";
 
 export const navItems = [
   { to: "/", label: "Home" },
+  { to: "/schools", label: "For Schools" },
+  { to: "/corporate", label: "For Corporates" },
+  { to: "/tratak", label: "Tratak Focus" },
+  { to: "/programs", label: "Services" },
   { to: "/about", label: "About" },
-  { to: "/programs", label: "Programs" },
-  { to: "/testimonials", label: "Testimonials" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -130,7 +132,7 @@ export function SiteHeader() {
               className="group hidden sm:inline-flex pr-3.5 pl-6"
               onClick={() => openBooking()}
             >
-              <span>Book a Class</span>
+              <span>Book a Demo</span>
               <span className="grid size-7 place-items-center rounded-full bg-primary-foreground/15 text-primary-foreground transition-transform duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:translate-x-0.5">
                 <ArrowRight className="size-3.5" />
               </span>
@@ -208,7 +210,7 @@ export function SiteHeader() {
                   openBooking();
                 }}
               >
-                <span>Book a Class</span>
+                <span>Book a Demo</span>
                 <span className="grid size-7 place-items-center rounded-full bg-primary-foreground/15 text-primary-foreground transition-transform duration-200 group-hover:translate-x-0.5">
                   <ArrowRight className="size-3.5" />
                 </span>

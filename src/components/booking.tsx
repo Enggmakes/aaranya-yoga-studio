@@ -257,13 +257,27 @@ export function EnquiryForm({
             className={fieldClass}
             aria-invalid={!!errors.program}
           >
-            <option value="">Choose a practice</option>
-            {programs.map((p) => (
-              <option key={p.id} value={p.id}>
-                {p.name}
-              </option>
-            ))}
-            <option value="general">General / beginner inquiry</option>
+            <option value="">Choose a program or service</option>
+            <optgroup label="Institutional & Corporate Demos">
+              <option value="school-demo">School / College Workshop (Exam Calm)</option>
+              <option value="corporate-demo">Corporate Wellness (De-Stress at Desk)</option>
+              <option value="tratak">Tratak Concentration Workshop</option>
+            </optgroup>
+            <optgroup label="Science-Based Wellness Practices">
+              <option value="cyclic">Cyclic Meditation (CM)</option>
+              <option value="yoganidra">Yoga Nidra (Yogic Sleep)</option>
+              <option value="chairyoga">Chair Yoga (Desk & Uniform)</option>
+              <option value="pranayama">Breathwork & Pranayama</option>
+              <option value="suryanamaskar">Surya Namaskar (Mindful Flow)</option>
+            </optgroup>
+            <optgroup label="Classical Practices">
+              <option value="hatha">Hatha Yoga</option>
+              <option value="ashtanga">Ashtanga Yoga</option>
+              <option value="meditation">Meditation & Stillness</option>
+              <option value="beginner">Beginner Foundations</option>
+              <option value="personal">Personalized 1-on-1 Guidance</option>
+            </optgroup>
+            <option value="general">General / Custom Inquiry</option>
           </select>
           {err("program")}
         </div>

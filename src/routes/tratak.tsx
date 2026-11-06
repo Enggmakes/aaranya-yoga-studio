@@ -15,6 +15,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/layout";
 import { useBooking } from "@/components/booking";
+import tratakHero from "@/assets/tratak-hero.jpg";
 
 export const Route = createFileRoute("/tratak")({
   head: () => ({
@@ -59,7 +60,46 @@ function TratakPage() {
         eyebrow="Signature Focus Technique"
         title="Tratak: Ancient Science for Razor-Sharp Concentration"
         intro="A simple, scientific gazing meditation that trains the brain to hold single-pointed attention. The definitive antidote to short-form reel distraction, monitor glare, and scattered exam thinking."
-      />
+        image={tratakHero}
+        imageAlt="Individual practicing serene Tratak candle flame gazing meditation"
+        quote="When the visual gaze stills, the racing mind follows."
+        quoteAuthor="Traditional Tratak Principle"
+      >
+        <div className="flex flex-wrap items-center gap-3">
+          <Button
+            variant="pill"
+            size="xl"
+            onClick={() => openBooking("tratak")}
+            className="bg-[#183820] text-[#FFF8EC] hover:bg-[#102A1B]"
+          >
+            <Eye className="size-4" />
+            <span>Book Tratak Workshop</span>
+            <ArrowRight className="size-4 ml-1" />
+          </Button>
+
+          <Button asChild variant="pillOutline" size="xl">
+            <a href="#types">
+              <span>View Techniques</span>
+              <ArrowRight className="size-4 ml-1" />
+            </a>
+          </Button>
+        </div>
+
+        <div className="mt-6 flex flex-wrap items-center gap-4 text-xs font-medium text-[#142F1C]">
+          <span className="flex items-center gap-1.5">
+            <CheckCircle2 className="size-3.5 text-[#285732]" />
+            15–20 Min Practice
+          </span>
+          <span className="flex items-center gap-1.5">
+            <CheckCircle2 className="size-3.5 text-[#285732]" />
+            Relieves Eye Fatigue
+          </span>
+          <span className="flex items-center gap-1.5">
+            <CheckCircle2 className="size-3.5 text-[#285732]" />
+            Students 12+ &amp; IT Teams
+          </span>
+        </div>
+      </PageHero>
 
       {/* What is Tratak Section */}
       <section className="container-x py-14 sm:py-20">
@@ -220,3 +260,4 @@ function TratakPage() {
     </>
   );
 }
+

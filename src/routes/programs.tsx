@@ -13,6 +13,7 @@ import { PageHero } from "@/components/layout";
 import { useBooking } from "@/components/booking";
 import { ServicesSection } from "@/components/services-section";
 import { programs, type Program } from "@/data/site";
+import heroImg from "@/assets/hero.jpg";
 
 const programsSchema = {
   "@context": "https://schema.org",
@@ -87,9 +88,32 @@ function Programs() {
     <>
       <PageHero
         eyebrow="Our Practice Pathways"
-        title="Pathways to restore body & mind"
-        intro="Whether you are arriving on the mat for the very first time, deepening a steady daily practice, or seeking wellness sessions for your school or college, there is a patient, unhurried session waiting for you."
-      />
+        title="Pathways to Restore Body & Mind"
+        intro="Whether you are seeking high-impact wellness sessions for your school or corporate team, or deepening a steady personal practice, our science-based methods deliver measurable calm."
+        image={heroImg}
+        imageAlt="Practitioner in a serene sunlit yoga sanctuary"
+        quote="Unhurried breath and mindful movement for real everyday strength."
+        quoteAuthor="IRA's Yoga House"
+      >
+        <div className="flex flex-wrap items-center gap-3">
+          <Button
+            variant="pill"
+            size="xl"
+            onClick={() => openBooking()}
+            className="bg-[#183820] text-[#FFF8EC] hover:bg-[#102A1B]"
+          >
+            <span>Book a Session</span>
+            <ArrowRight className="size-4 ml-1" />
+          </Button>
+
+          <Button asChild variant="pillOutline" size="xl">
+            <a href="#services">
+              <span>View Solution Cards</span>
+              <ArrowRight className="size-4 ml-1" />
+            </a>
+          </Button>
+        </div>
+      </PageHero>
 
       {/* 6 Problem -> Solution Services Matrix */}
       <ServicesSection />

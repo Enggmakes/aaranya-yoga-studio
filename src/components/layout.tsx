@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Phone, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useBooking } from "@/components/booking";
 import { studio } from "@/data/site";
@@ -229,20 +229,95 @@ export function PageHero({
   eyebrow,
   title,
   intro,
+  image,
+  imageAlt,
+  quote,
+  quoteAuthor,
+  children,
 }: {
   eyebrow: string;
   title: string;
   intro: string;
+  image?: string;
+  imageAlt?: string;
+  quote?: string;
+  quoteAuthor?: string;
+  children?: ReactNode;
 }) {
   return (
-    <section className="container-x pt-8 pb-8 md:pt-20 md:pb-16">
-      <p className="eyebrow fade-up">{eyebrow}</p>
-      <h1 className="fade-up mt-4 max-w-3xl text-5xl font-semibold leading-[1.05] text-primary md:text-7xl font-serif">
-        {title}
-      </h1>
-      <p className="fade-up mt-6 max-w-[65ch] text-lg text-muted-foreground leading-relaxed">
-        {intro}
-      </p>
+    <section className="relative overflow-hidden pt-6 pb-12 sm:pt-10 sm:pb-16 lg:pt-14 lg:pb-20 bg-gradient-to-b from-[#FFFDF9] via-[#FAF8F5] to-[#FAF8F5]">
+      {/* Warm organic ambient background halos */}
+      <div
+        className="pointer-events-none absolute -top-32 right-0 size-96 rounded-full bg-[#B69A58]/12 blur-3xl"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute bottom-0 left-0 size-80 rounded-full bg-[#2A3828]/6 blur-3xl"
+        aria-hidden="true"
+      />
+
+      <div className="container-x relative">
+        {image ? (
+          <div className="grid items-center gap-8 lg:grid-cols-[1.15fr_1.05fr] lg:gap-14">
+            <div className="fade-up order-2 lg:order-1">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#B69A58]/40 bg-[#FFFDF9] px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#777B50] shadow-xs">
+                <Sparkles className="size-3.5 text-[#B69A58]" />
+                <span>{eyebrow}</span>
+              </div>
+
+              <h1 className="mt-4 font-['Cormorant_Garamond',Georgia,serif] text-4xl font-semibold leading-[1.08] text-[#142F1C] sm:text-5xl lg:text-6xl xl:text-7xl">
+                {title}
+              </h1>
+
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-[#4E5C48] sm:mt-6 sm:text-lg">
+                {intro}
+              </p>
+
+              {children && <div className="mt-7 sm:mt-9">{children}</div>}
+            </div>
+
+            <div className="fade-up order-1 lg:order-2">
+              <div className="relative overflow-hidden rounded-[2.25rem] border border-[#B69A58]/40 bg-[#FFFDF9] shadow-[0_20px_45px_-12px_rgba(24,56,32,0.18)]">
+                <img
+                  src={image}
+                  alt={imageAlt || title}
+                  width={1200}
+                  height={900}
+                  className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-103"
+                />
+
+                {quote && (
+                  <div className="liquid-glass-pill absolute bottom-4 left-4 right-4 sm:right-auto sm:max-w-xs rounded-2xl p-4 border border-[#B69A58]/60 bg-[#FFFDF9]/92 backdrop-blur-md shadow-lg">
+                    <p className="font-['Cormorant_Garamond',Georgia,serif] italic text-base leading-snug text-[#142F1C]">
+                      “{quote}”
+                    </p>
+                    <p className="mt-1 text-[10px] uppercase tracking-wider text-[#777B50] font-bold">
+                      — {quoteAuthor || "IRA's Yoga House"}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#B69A58]/40 bg-[#FFFDF9] px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#777B50] shadow-xs">
+              <Sparkles className="size-3.5 text-[#B69A58]" />
+              <span>{eyebrow}</span>
+            </div>
+
+            <h1 className="mt-4 font-['Cormorant_Garamond',Georgia,serif] text-4xl font-semibold leading-[1.08] text-[#142F1C] sm:text-5xl lg:text-6xl xl:text-7xl">
+              {title}
+            </h1>
+
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#4E5C48] sm:mt-6 sm:text-lg">
+              {intro}
+            </p>
+
+            {children && <div className="mt-7 sm:mt-9">{children}</div>}
+          </div>
+        )}
+      </div>
     </section>
   );
 }

@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/layout";
 import { useBooking } from "@/components/booking";
 import { corporatePrograms, corporatePackages } from "@/data/site";
+import corporateHero from "@/assets/corporate-hero.jpg";
 
 export const Route = createFileRoute("/corporate")({
   head: () => ({
@@ -61,7 +62,46 @@ function CorporatePage() {
         eyebrow="For Corporate & IT Teams"
         title="Yoga at Workplace: De-Stress Without Leaving Your Desk"
         intro="Long desk sitting, monitor glare, and deadline stress quietly drain team morale and productivity. We deliver science-based chair yoga, breathwork, and Tratak that re-energizes employees in 30 minutes with zero equipment."
-      />
+        image={corporateHero}
+        imageAlt="Professionals practicing seated desk yoga and neck release in a modern sunlit office"
+        quote="Relieve tech-neck and workplace burnout in 30 minutes without changing clothes."
+        quoteAuthor="Corporate Wellness Pillar"
+      >
+        <div className="flex flex-wrap items-center gap-3">
+          <Button
+            variant="pill"
+            size="xl"
+            onClick={() => openBooking("corporate-demo")}
+            className="bg-[#183820] text-[#FFF8EC] hover:bg-[#102A1B]"
+          >
+            <Building className="size-4" />
+            <span>Book Corporate Demo</span>
+            <ArrowRight className="size-4 ml-1" />
+          </Button>
+
+          <Button asChild variant="pillOutline" size="xl">
+            <a href="#packages">
+              <span>View Packages</span>
+              <ArrowRight className="size-4 ml-1" />
+            </a>
+          </Button>
+        </div>
+
+        <div className="mt-6 flex flex-wrap items-center gap-4 text-xs font-medium text-[#142F1C]">
+          <span className="flex items-center gap-1.5">
+            <CheckCircle2 className="size-3.5 text-[#285732]" />
+            No Mats Required
+          </span>
+          <span className="flex items-center gap-1.5">
+            <CheckCircle2 className="size-3.5 text-[#285732]" />
+            HR Impact Reports
+          </span>
+          <span className="flex items-center gap-1.5">
+            <CheckCircle2 className="size-3.5 text-[#285732]" />
+            English, Hindi &amp; Marathi
+          </span>
+        </div>
+      </PageHero>
 
       {/* The Problem We Solve */}
       <section className="container-x py-14 sm:py-20">
@@ -257,3 +297,4 @@ function CorporatePage() {
     </>
   );
 }
+

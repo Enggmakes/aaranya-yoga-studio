@@ -20,6 +20,7 @@ import { PageHero } from "@/components/layout";
 import { useBooking } from "@/components/booking";
 import { schoolPrograms, schoolDeliverables } from "@/data/site";
 import campus from "@/assets/campus.jpg";
+import schoolsHero from "@/assets/schools-hero.jpg";
 
 const occasions = [
   {
@@ -83,7 +84,46 @@ function SchoolsPage() {
         eyebrow="For Schools & Colleges"
         title="Yoga for Exam Stress & Student Well-being"
         intro="Simple, science-based yoga, breathwork, and Tratak designed for Std 8th to 12th students and faculty. Zero mats, zero confusing jargon — just practical calm that improves academic performance."
-      />
+        image={schoolsHero}
+        imageAlt="Indian high school and college students practicing calming breathwork and focus in a classroom"
+        quote="Measured calm before prelims, board exams, and daily study."
+        quoteAuthor="Student Wellness Program"
+      >
+        <div className="flex flex-wrap items-center gap-3">
+          <Button
+            variant="pill"
+            size="xl"
+            onClick={() => openBooking("school-demo")}
+            className="bg-[#183820] text-[#FFF8EC] hover:bg-[#102A1B]"
+          >
+            <GraduationCap className="size-4" />
+            <span>Get School Proposal</span>
+            <ArrowRight className="size-4 ml-1" />
+          </Button>
+
+          <Button asChild variant="pillOutline" size="xl">
+            <a href="#curriculum">
+              <span>Explore Programs</span>
+              <ArrowRight className="size-4 ml-1" />
+            </a>
+          </Button>
+        </div>
+
+        <div className="mt-6 flex flex-wrap items-center gap-4 text-xs font-medium text-[#142F1C]">
+          <span className="flex items-center gap-1.5">
+            <CheckCircle2 className="size-3.5 text-[#285732]" />
+            Zero Mats Required
+          </span>
+          <span className="flex items-center gap-1.5">
+            <CheckCircle2 className="size-3.5 text-[#285732]" />
+            Pre/Post Feedback &amp; Reports
+          </span>
+          <span className="flex items-center gap-1.5">
+            <CheckCircle2 className="size-3.5 text-[#285732]" />
+            Std 8th to 12th &amp; Staff
+          </span>
+        </div>
+      </PageHero>
 
       {/* The Problem We Solve */}
       <section className="container-x py-14 sm:py-20">
@@ -253,3 +293,4 @@ function SchoolsPage() {
     </>
   );
 }
+

@@ -279,17 +279,30 @@ export function PageHero({
                   className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-103"
                 />
 
+                {/* Desktop & Tablet: High-End Dark Forest Green Glass Badge (No Stark White Box) */}
                 {quote && (
-                  <div className="liquid-glass-pill absolute bottom-4 left-4 right-4 sm:right-auto sm:max-w-xs rounded-2xl p-4 border border-[#B69A58]/60 bg-[#FFFDF9]/92 backdrop-blur-md shadow-lg">
-                    <p className="font-['Cormorant_Garamond',Georgia,serif] italic text-base leading-snug text-[#142F1C]">
+                  <div className="hidden sm:block absolute bottom-4 left-4 max-w-xs rounded-2xl p-4 border border-[#B69A58]/50 bg-[#102A1B]/85 backdrop-blur-md text-[#FFF8EC] shadow-[0_12px_32px_rgba(16,42,27,0.35)]">
+                    <p className="font-['Cormorant_Garamond',Georgia,serif] italic text-base leading-snug text-[#FAF8F5]">
                       “{quote}”
                     </p>
-                    <p className="mt-1 text-[10px] uppercase tracking-wider text-[#777B50] font-bold">
+                    <p className="mt-1 text-[10px] uppercase tracking-wider text-[#E2C783] font-bold">
                       — {quoteAuthor || "IRA's Yoga House"}
                     </p>
                   </div>
                 )}
               </div>
+
+              {/* Mobile View: Clean Editorial Caption Below Image (Leaves Photo 100% Unobstructed, Zero White Badge) */}
+              {quote && (
+                <div className="mt-3 text-center sm:hidden px-3">
+                  <p className="font-['Cormorant_Garamond',Georgia,serif] italic text-sm text-[#4E5C48]">
+                    “{quote}”
+                  </p>
+                  <p className="mt-0.5 text-[10px] uppercase tracking-wider text-[#777B50] font-semibold">
+                    — {quoteAuthor || "IRA's Yoga House"}
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         ) : (

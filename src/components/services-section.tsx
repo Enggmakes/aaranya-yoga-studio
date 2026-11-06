@@ -30,26 +30,28 @@ import { BotanicalBranch, FlaticonLotus } from "@/components/footer/lotus-art";
 import schoolsHero from "@/assets/schools-hero.jpg";
 import corporateHero from "@/assets/corporate-hero.jpg";
 import tratakHero from "@/assets/tratak-hero.jpg";
-import meditation from "@/assets/meditation.jpg";
+import cyclicMeditation from "@/assets/cyclic-meditation.jpg";
+import yogaNidra from "@/assets/yoga-nidra.jpg";
+import chairYoga from "@/assets/chair-yoga.jpg";
+import suryaNamaskar from "@/assets/surya-namaskar.jpg";
 import pranayama from "@/assets/pranayama.jpg";
-import hatha from "@/assets/hatha.jpg";
 
 function getServicePoster(iconName: ServiceSolution["iconName"]) {
   switch (iconName) {
     case "cyclic":
-      return schoolsHero;
+      return cyclicMeditation;
     case "yoganidra":
-      return meditation;
+      return yogaNidra;
     case "tratak":
       return tratakHero;
     case "chairyoga":
-      return corporateHero;
+      return chairYoga;
     case "pranayama":
       return pranayama;
     case "suryanamaskar":
-      return hatha;
+      return suryaNamaskar;
     default:
-      return meditation;
+      return yogaNidra;
   }
 }
 
@@ -297,18 +299,7 @@ export function ServicesSection() {
                       alt={`${selectedService.name} practice walkthrough video preview`}
                       className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#102A1B]/95 via-[#102A1B]/45 to-black/35" />
-
-                    {/* Top Video Streaming Header: Live Status + 0:30 HD Tag */}
-                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between text-[11px] font-semibold text-[#FFF8EC] z-10">
-                      <span className="rounded-full bg-black/60 backdrop-blur-md px-3 py-1 border border-white/20 flex items-center gap-1.5 shadow-sm">
-                        <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
-                        <span className="tracking-wider uppercase text-[10px]">Real Practice Video</span>
-                      </span>
-                      <span className="rounded-full bg-black/60 backdrop-blur-md px-3 py-1 border border-white/20 tracking-wider">
-                        0:30 HD
-                      </span>
-                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#102A1B]/90 via-[#102A1B]/40 to-black/30" />
 
                     {/* Center Cinematic Play Button with Liquid Ripple Glow */}
                     <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-[#FFF8EC] z-10">
@@ -322,25 +313,11 @@ export function ServicesSection() {
                         <Play className="size-7 ml-1 fill-current" />
                       </button>
                       <p className="mt-3 font-['Cormorant_Garamond',Georgia,serif] text-xl font-medium text-[#FFF8EC] drop-shadow-md">
-                        Watch Real Practice Video
+                        30-Second Practice Walkthrough
                       </p>
                       <p className="mt-1 text-xs text-[#E2D4BF] max-w-sm drop-shadow-sm">
                         Click to watch the real {selectedService.name} session walkthrough.
                       </p>
-                    </div>
-
-                    {/* Bottom Video Progress Scrub Bar */}
-                    <div
-                      onClick={() => setIsPlaying(true)}
-                      className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-3 pt-6 z-10 cursor-pointer"
-                    >
-                      <div className="h-1.5 w-full bg-white/25 rounded-full overflow-hidden backdrop-blur-sm">
-                        <div className="h-full w-2/5 bg-[#B69A58] rounded-full transition-all duration-300" />
-                      </div>
-                      <div className="mt-1.5 flex items-center justify-between text-[10px] text-white/80">
-                        <span>Click to stream real video</span>
-                        <span>0:30 HD</span>
-                      </div>
                     </div>
                   </>
                 )}

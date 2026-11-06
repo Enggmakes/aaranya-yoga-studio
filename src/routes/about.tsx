@@ -1,11 +1,10 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { Compass, Feather, Sprout, UserRound, ArrowRight, CheckCircle2 } from "lucide-react";
-import { PageHero, SectionHeading } from "@/components/layout";
+import { createFileRoute } from "@tanstack/react-router";
+import { Compass, Feather, Sprout, ArrowRight, CheckCircle2 } from "lucide-react";
+import { PageHero } from "@/components/layout";
 import { Button } from "@/components/ui/button";
 import { useBooking } from "@/components/booking";
-import { instructors, stats } from "@/data/site";
+import { stats } from "@/data/site";
 import pranayama from "@/assets/pranayama.jpg";
-import personal from "@/assets/personal.jpg";
 
 const aboutSchema = {
   "@context": "https://schema.org",
@@ -218,50 +217,6 @@ function About() {
             ))}
           </div>
         </div>
-      </section>
-
-      {/* Guides Section */}
-      <section className="container-x pb-28">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <SectionHeading
-            eyebrow="Our Guides"
-            title="Experienced teachers who hold thoughtful space"
-          />
-          <Button asChild variant="pillOutline" size="sm">
-            <Link to="/contact">
-              Connect with an instructor <ArrowRight className="size-3.5" />
-            </Link>
-          </Button>
-        </div>
-        <ul className="mt-12 grid gap-6 md:grid-cols-3">
-          {instructors.map((i, idx) => (
-            <li key={idx}>
-              <div className="liquid-glass-card rounded-[2rem] p-5 sm:p-6 h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-soft">
-                {idx === 0 ? (
-                  <div className="overflow-hidden rounded-2xl bg-secondary/30 ring-1 ring-white/60 shadow-xs">
-                    <img
-                      src={personal}
-                      alt={i.name}
-                      loading="lazy"
-                      width={1024}
-                      height={1024}
-                      className="aspect-square w-full object-cover object-top transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-103"
-                    />
-                  </div>
-                ) : (
-                  <div className="grid aspect-square place-items-center rounded-2xl bg-secondary/80 text-muted-foreground">
-                    <UserRound className="size-12 opacity-50" aria-hidden />
-                  </div>
-                )}
-                <h3 className="mt-5 font-serif text-2xl text-primary">{i.name}</h3>
-                <p className="mt-1 text-xs uppercase tracking-wider text-olive font-medium">
-                  {i.focus}
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{i.bio}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
       </section>
     </>
   );

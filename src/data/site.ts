@@ -5,6 +5,13 @@ import pranayama from "@/assets/pranayama.jpg";
 import beginner from "@/assets/beginner.jpg";
 import personal from "@/assets/personal.jpg";
 import campus from "@/assets/campus.jpg";
+import schoolsHero from "@/assets/schools-hero.jpg";
+import corporateHero from "@/assets/corporate-hero.jpg";
+import tratakHero from "@/assets/tratak-hero.jpg";
+import cyclicMeditation from "@/assets/cyclic-meditation.jpg";
+import yogaNidra from "@/assets/yoga-nidra.jpg";
+import chairYoga from "@/assets/chair-yoga.jpg";
+import suryaNamaskar from "@/assets/surya-namaskar.jpg";
 
 /**
  * EDITABLE STUDIO DETAILS — replace placeholders with real information.
@@ -90,8 +97,8 @@ export const serviceSolutions: ServiceSolution[] = [
     setupNeeded: "No mats required. Can be done in conference rooms, auditoriums, or classrooms.",
     iconName: "cyclic",
     videoType: "youtube",
-    videoSource: "https://www.youtube-nocookie.com/embed/pbkCSkUC77k",
-    videoTitle: "Cyclic Meditation & Nervous System Reset Walkthrough",
+    videoSource: "https://www.youtube-nocookie.com/embed/kPMaIj4WPrY",
+    videoTitle: "Cyclic Meditation for Stress Management — Moving Meditation Practice",
   },
   {
     id: "yoganidra",
@@ -133,9 +140,9 @@ export const serviceSolutions: ServiceSolution[] = [
     whoCanJoin: "Students 12+ and working professionals. Highly recommended for exam batches & developers.",
     setupNeeded: "Dimly lit room; candle stand or focal point cards provided.",
     iconName: "tratak",
-    videoType: "html5",
-    videoSource: "https://upload.wikimedia.org/wikipedia/commons/c/cb/White_candle_video.webm",
-    videoTitle: "Jyoti Tratak — Steady Candle Flame Gazing Practice Video",
+    videoType: "youtube",
+    videoSource: "https://www.youtube-nocookie.com/embed/_IYH3foigeo",
+    videoTitle: "Trataka — Candle Flame Gazing & Concentration Practice",
   },
   {
     id: "chairyoga",
@@ -178,7 +185,7 @@ export const serviceSolutions: ServiceSolution[] = [
     setupNeeded: "Any seated environment.",
     iconName: "pranayama",
     videoType: "youtube",
-    videoSource: "https://www.youtube-nocookie.com/embed/v7SN-d4q6ac",
+    videoSource: "https://www.youtube-nocookie.com/embed/8VwufJrUhic",
     videoTitle: "Nadi Shodhana & Calming Pranayama Breathwork",
   },
   {
@@ -367,7 +374,7 @@ export const programs: Program[] = [
       "Dedicated Teacher Recharge session for staff rooms",
     ],
     level: "Schools & Colleges",
-    image: campus,
+    image: schoolsHero,
   },
   {
     id: "corporate-demo",
@@ -381,7 +388,7 @@ export const programs: Program[] = [
       "Conducted in English, Hindi & Marathi",
     ],
     level: "Corporate & Teams",
-    image: personal,
+    image: corporateHero,
   },
   {
     id: "tratak",
@@ -395,7 +402,7 @@ export const programs: Program[] = [
       "Calms racing thoughts for restorative deep sleep",
     ],
     level: "Students 12+ & Professionals",
-    image: meditation,
+    image: tratakHero,
   },
   {
     id: "cyclic",
@@ -409,7 +416,7 @@ export const programs: Program[] = [
       "Can be done seated or standing with zero mats",
     ],
     level: "All levels",
-    image: hatha,
+    image: cyclicMeditation,
   },
   {
     id: "yoganidra",
@@ -423,7 +430,7 @@ export const programs: Program[] = [
       "Enhances memory consolidation for studies",
     ],
     level: "All levels",
-    image: personal,
+    image: yogaNidra,
   },
   {
     id: "chairyoga",
@@ -437,7 +444,7 @@ export const programs: Program[] = [
       "Quick 20–30 min refresher during busy workdays",
     ],
     level: "All levels",
-    image: beginner,
+    image: chairYoga,
   },
   {
     id: "suryanamaskar",
@@ -451,7 +458,7 @@ export const programs: Program[] = [
       "Strengthens core and improves posture",
     ],
     level: "All levels",
-    image: ashtanga,
+    image: suryaNamaskar,
   },
   {
     id: "hatha",

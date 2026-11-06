@@ -65,6 +65,9 @@ export type ServiceSolution = {
   whoCanJoin: string;
   setupNeeded: string;
   iconName: "cyclic" | "yoganidra" | "tratak" | "chairyoga" | "pranayama" | "suryanamaskar";
+  videoType?: "youtube" | "html5";
+  videoSource?: string;
+  videoTitle?: string;
 };
 
 export const serviceSolutions: ServiceSolution[] = [
@@ -86,6 +89,9 @@ export const serviceSolutions: ServiceSolution[] = [
     whoCanJoin: "Students Std 8th+, corporate executives, educators, anyone battling restless anxiety.",
     setupNeeded: "No mats required. Can be done in conference rooms, auditoriums, or classrooms.",
     iconName: "cyclic",
+    videoType: "youtube",
+    videoSource: "https://www.youtube-nocookie.com/embed/pbkCSkUC77k",
+    videoTitle: "Cyclic Meditation & Nervous System Reset Walkthrough",
   },
   {
     id: "yoganidra",
@@ -105,6 +111,9 @@ export const serviceSolutions: ServiceSolution[] = [
     whoCanJoin: "All age groups (Std 8th to senior executives). Zero flexibility needed.",
     setupNeeded: "Quiet room, chairs or reclining floor mats.",
     iconName: "yoganidra",
+    videoType: "youtube",
+    videoSource: "https://www.youtube-nocookie.com/embed/jb24UmmjqFk",
+    videoTitle: "Guided Yoga Nidra (NSDR) for Restorative Deep Sleep",
   },
   {
     id: "tratak",
@@ -124,6 +133,9 @@ export const serviceSolutions: ServiceSolution[] = [
     whoCanJoin: "Students 12+ and working professionals. Highly recommended for exam batches & developers.",
     setupNeeded: "Dimly lit room; candle stand or focal point cards provided.",
     iconName: "tratak",
+    videoType: "html5",
+    videoSource: "https://upload.wikimedia.org/wikipedia/commons/c/cb/White_candle_video.webm",
+    videoTitle: "Jyoti Tratak — Steady Candle Flame Gazing Practice Video",
   },
   {
     id: "chairyoga",
@@ -143,6 +155,9 @@ export const serviceSolutions: ServiceSolution[] = [
     whoCanJoin: "Anyone sitting for more than 4 hours a day.",
     setupNeeded: "Standard chairs in conference room, classroom, or auditorium.",
     iconName: "chairyoga",
+    videoType: "youtube",
+    videoSource: "https://www.youtube-nocookie.com/embed/tAUf7aajBWE",
+    videoTitle: "Chair Yoga & Desk Stress Relief Walkthrough",
   },
   {
     id: "pranayama",
@@ -162,6 +177,9 @@ export const serviceSolutions: ServiceSolution[] = [
     whoCanJoin: "Everyone.",
     setupNeeded: "Any seated environment.",
     iconName: "pranayama",
+    videoType: "youtube",
+    videoSource: "https://www.youtube-nocookie.com/embed/v7SN-d4q6ac",
+    videoTitle: "Nadi Shodhana & Calming Pranayama Breathwork",
   },
   {
     id: "suryanamaskar",
@@ -181,6 +199,9 @@ export const serviceSolutions: ServiceSolution[] = [
     whoCanJoin: "Beginners to advanced practitioners.",
     setupNeeded: "Open floor or assembly hall.",
     iconName: "suryanamaskar",
+    videoType: "youtube",
+    videoSource: "https://www.youtube-nocookie.com/embed/_ENYL8qxKx0",
+    videoTitle: "Traditional 12-Step Surya Namaskara Mindful Flow",
   },
 ];
 

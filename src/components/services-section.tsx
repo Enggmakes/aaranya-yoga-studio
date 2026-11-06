@@ -74,6 +74,7 @@ function getServiceIcon(iconName: ServiceSolution["iconName"]) {
 
 export function ServicesSection() {
   const [selectedService, setSelectedService] = useState<ServiceSolution | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
   const { openBooking } = useBooking();
 
   return (
@@ -183,7 +184,10 @@ export function ServicesSection() {
                   <Button
                     variant="pillOutline"
                     size="sm"
-                    onClick={() => setSelectedService(service)}
+                    onClick={() => {
+                      setIsPlaying(false);
+                      setSelectedService(service);
+                    }}
                     className="group-hover:border-[#183820] group-hover:bg-[#183820] group-hover:text-[#FFF8EC]"
                   >
                     <span>Know More</span>
@@ -226,8 +230,16 @@ export function ServicesSection() {
         </div>
       </div>
 
-      {/* Detailed Modal on "Know More" */}
-      <Dialog open={!!selectedService} onOpenChange={(open) => !open && setSelectedService(null)}>
+      {/* Detailed Modal on "Know More" with Live Playable Video */}
+      <Dialog
+        open={!!selectedService}
+        onOpenChange={(open) => {
+          if (!open) {
+            setIsPlaying(false);
+            setSelectedService(null);
+          }
+        }}
+      >
         {selectedService && (
           <DialogContent className="max-w-2xl border-[#B69A58]/40 bg-[#FFFDF9] p-6 sm:p-9 shadow-2xl rounded-3xl">
             <DialogHeader>
@@ -245,51 +257,93 @@ export function ServicesSection() {
             </DialogHeader>
 
             <div className="mt-4 space-y-5 text-sm text-[#4E5C48]">
-              {/* Photorealistic 30-Second Practice Walkthrough Video Preview */}
+              {/* Live Playable Practice Video / Photorealistic Cover Player */}
               <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-[#B69A58]/50 shadow-[0_12px_32px_rgba(24,56,32,0.18)] group isolate bg-[#102A1B]">
-                {/* Photorealistic Video Backdrop from Real Practice Photography */}
-                <img
-                  src={getServicePoster(selectedService.iconName)}
-                  alt={`${selectedService.name} practice walkthrough video preview`}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#102A1B]/95 via-[#102A1B]/45 to-black/35" />
+                {isPlaying && selectedService.videoSource ? (
+                  <div className="relative h-full w-full bg-black">
+                    {selectedService.videoType === "html5" ? (
+                      <video
+                        src={selectedService.videoSource}
+                        controls
+                        autoPlay
+                        loop
+                        playsInline
+                        className="h-full w-full object-cover rounded-2xl"
+                      />
+                    ) : (
+                      <iframe
+                        src={`${selectedService.videoSource}?autoplay=1&mute=0&controls=1&rel=0`}
+                        title={selectedService.videoTitle || selectedService.name}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                        className="h-full w-full rounded-2xl border-0"
+                      />
+                    )}
 
-                {/* Top Video Streaming Header: Live Status + 0:30 HD Tag */}
-                <div className="absolute top-3 left-3 right-3 flex items-center justify-between text-[11px] font-semibold text-[#FFF8EC] z-10">
-                  <span className="rounded-full bg-black/60 backdrop-blur-md px-3 py-1 border border-white/20 flex items-center gap-1.5 shadow-sm">
-                    <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="tracking-wider uppercase text-[10px]">Practice Walkthrough</span>
-                  </span>
-                  <span className="rounded-full bg-black/60 backdrop-blur-md px-3 py-1 border border-white/20 tracking-wider">
-                    0:30 HD
-                  </span>
-                </div>
-
-                {/* Center Cinematic Play Button with Liquid Ripple Glow */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-[#FFF8EC] z-10">
-                  <span className="group/btn relative grid size-16 place-items-center rounded-full bg-[#B69A58] text-[#102A1B] shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer">
-                    <span className="absolute -inset-2 rounded-full bg-[#B69A58]/35 animate-ping opacity-60" />
-                    <Play className="size-7 ml-1 fill-current" />
-                  </span>
-                  <p className="mt-3 font-['Cormorant_Garamond',Georgia,serif] text-xl font-medium text-[#FFF8EC] drop-shadow-md">
-                    30-Second Practice Walkthrough
-                  </p>
-                  <p className="mt-1 text-xs text-[#E2D4BF] max-w-sm drop-shadow-sm">
-                    Experience how {selectedService.name} is taught in classrooms and conference rooms.
-                  </p>
-                </div>
-
-                {/* Bottom Video Progress Scrub Bar */}
-                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-3 pt-6 z-10">
-                  <div className="h-1.5 w-full bg-white/25 rounded-full overflow-hidden backdrop-blur-sm">
-                    <div className="h-full w-2/5 bg-[#B69A58] rounded-full transition-all duration-300" />
+                    {/* Return to Overview Button */}
+                    <button
+                      type="button"
+                      onClick={() => setIsPlaying(false)}
+                      className="absolute top-3 right-3 z-20 rounded-full bg-black/75 px-3 py-1 text-xs font-medium text-white backdrop-blur-md transition-all hover:bg-black hover:scale-105 cursor-pointer shadow-md border border-white/20"
+                    >
+                      ✕ Close Video
+                    </button>
                   </div>
-                  <div className="mt-1.5 flex items-center justify-between text-[10px] text-white/70">
-                    <span>0:12</span>
-                    <span>0:30</span>
-                  </div>
-                </div>
+                ) : (
+                  <>
+                    {/* Photorealistic Video Backdrop from Real Practice Photography */}
+                    <img
+                      src={getServicePoster(selectedService.iconName)}
+                      alt={`${selectedService.name} practice walkthrough video preview`}
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#102A1B]/95 via-[#102A1B]/45 to-black/35" />
+
+                    {/* Top Video Streaming Header: Live Status + 0:30 HD Tag */}
+                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between text-[11px] font-semibold text-[#FFF8EC] z-10">
+                      <span className="rounded-full bg-black/60 backdrop-blur-md px-3 py-1 border border-white/20 flex items-center gap-1.5 shadow-sm">
+                        <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
+                        <span className="tracking-wider uppercase text-[10px]">Real Practice Video</span>
+                      </span>
+                      <span className="rounded-full bg-black/60 backdrop-blur-md px-3 py-1 border border-white/20 tracking-wider">
+                        0:30 HD
+                      </span>
+                    </div>
+
+                    {/* Center Cinematic Play Button with Liquid Ripple Glow */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-[#FFF8EC] z-10">
+                      <button
+                        type="button"
+                        onClick={() => setIsPlaying(true)}
+                        className="group/btn relative grid size-16 place-items-center rounded-full bg-[#B69A58] text-[#102A1B] shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer focus:outline-none focus:ring-4 focus:ring-[#B69A58]/50"
+                        aria-label={`Play real practice video walkthrough for ${selectedService.name}`}
+                      >
+                        <span className="absolute -inset-2 rounded-full bg-[#B69A58]/40 animate-ping opacity-75" />
+                        <Play className="size-7 ml-1 fill-current" />
+                      </button>
+                      <p className="mt-3 font-['Cormorant_Garamond',Georgia,serif] text-xl font-medium text-[#FFF8EC] drop-shadow-md">
+                        Watch Real Practice Video
+                      </p>
+                      <p className="mt-1 text-xs text-[#E2D4BF] max-w-sm drop-shadow-sm">
+                        Click to watch the real {selectedService.name} session walkthrough.
+                      </p>
+                    </div>
+
+                    {/* Bottom Video Progress Scrub Bar */}
+                    <div
+                      onClick={() => setIsPlaying(true)}
+                      className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-3 pt-6 z-10 cursor-pointer"
+                    >
+                      <div className="h-1.5 w-full bg-white/25 rounded-full overflow-hidden backdrop-blur-sm">
+                        <div className="h-full w-2/5 bg-[#B69A58] rounded-full transition-all duration-300" />
+                      </div>
+                      <div className="mt-1.5 flex items-center justify-between text-[10px] text-white/80">
+                        <span>Click to stream real video</span>
+                        <span>0:30 HD</span>
+                      </div>
+                    </div>
+                  </>
+                )}
               </div>
 
               {/* What It Is */}

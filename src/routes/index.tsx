@@ -197,12 +197,12 @@ function Home() {
                 className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-103"
               />
 
-              {/* Desktop & Tablet: Apple Liquid Glass Floating Pill */}
-              <div className="apple-liquid-glass hidden sm:block absolute bottom-4 left-4 max-w-xs rounded-2xl p-4 sm:p-5 text-[#FFF8EC]">
-                <p className="font-['Cormorant_Garamond',Georgia,serif] italic text-base leading-snug text-[#FAF8F5] drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
+              {/* Desktop & Tablet: Our Signature Blurry Liquid Frosted Glass Pill (No Color Tint) */}
+              <div className="liquid-glass-pill hidden sm:block absolute bottom-4 left-4 max-w-xs rounded-2xl p-4 sm:p-5">
+                <p className="font-['Cormorant_Garamond',Georgia,serif] italic text-base leading-snug text-[#142F1C]">
                   “Measured calm before exams and high-stakes meetings.”
                 </p>
-                <p className="mt-1.5 text-[10px] uppercase tracking-wider text-[#E2C783] font-bold">
+                <p className="mt-1.5 text-[10px] uppercase tracking-wider text-[#777B50] font-bold">
                   — IRA&apos;s Yoga House
                 </p>
               </div>

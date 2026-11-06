@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { ArrowRight, CheckCircle2, Loader2, Mail, Sparkles, ShieldCheck } from "lucide-react";
+import { ArrowRight, CheckCircle2, Loader2, Mail } from "lucide-react";
 import { studio } from "@/data/site";
-import { FlaticonLotus } from "./lotus-art";
 
 export function NewsletterForm() {
   const [email, setEmail] = useState("");
@@ -64,34 +63,20 @@ export function NewsletterForm() {
   };
 
   return (
-    <div className="relative w-full max-w-md overflow-hidden rounded-3xl border border-[#B69A58]/45 bg-[#FFFDF9]/85 p-6 sm:p-7 shadow-[0_8px_28px_rgba(24,56,32,0.06)] backdrop-blur-md">
-      {/* Subtle Lotus Background Watermark in card corner */}
-      <div
-        className="pointer-events-none absolute -right-6 -bottom-6 opacity-[0.06]"
-        aria-hidden="true"
-      >
-        <FlaticonLotus className="size-44" color="#B69A58" />
-      </div>
-
-      {/* Eyebrow */}
-      <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#777B50]">
-        <Sparkles className="size-3 text-[#B69A58]" aria-hidden="true" />
-        <span>Stay in the Flow</span>
-      </div>
-
-      {/* Editorial Heading */}
-      <h3 className="mt-2 font-['Cormorant_Garamond',Georgia,serif] text-2xl sm:text-3xl font-medium italic text-[#142F1C]">
-        Yoga &amp; Mindfulness in Your Inbox
+    <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+      {/* Editorial Heading: Stay in the Flow */}
+      <h3 className="font-['Cormorant_Garamond',Georgia,serif] text-3xl font-medium italic text-[#142F1C] sm:text-4xl">
+        Stay in the Flow
       </h3>
 
       {/* Description */}
-      <p className="mt-1.5 text-xs sm:text-sm text-[#4E5C48] leading-relaxed">
-        Receive weekly science-backed breathwork techniques, Tratak focus guides, and calming updates.
+      <p className="mt-2 max-w-xs text-sm text-[#4E5C48] sm:max-w-sm sm:text-[15px] leading-relaxed">
+        Get yoga tips, event updates, and wellness inspiration.
       </p>
 
       {/* Pill-Shaped Newsletter Input */}
-      <form onSubmit={handleSubmit} className="mt-4 w-full">
-        <div className="group relative flex items-center rounded-full border border-[#B69A58]/80 bg-[#FFFDF9] p-1.5 shadow-[0_2px_12px_rgba(42,56,40,0.06)] transition-all duration-300 focus-within:border-[#8E7438] focus-within:ring-2 focus-within:ring-[#B69A58]/30 hover:border-[#8E7438]">
+      <form onSubmit={handleSubmit} className="mt-5 w-full max-w-sm sm:max-w-md">
+        <div className="group relative flex items-center rounded-full border border-[#B69A58]/80 bg-[#FFFDF9]/85 p-1.5 shadow-[0_2px_12px_rgba(42,56,40,0.06)] backdrop-blur-sm transition-all duration-300 focus-within:border-[#8E7438] focus-within:ring-2 focus-within:ring-[#B69A58]/30 hover:border-[#8E7438] hover:bg-[#FFFDF9]">
           {/* Left Envelope Icon */}
           <div className="flex size-9 shrink-0 items-center justify-center pl-3 text-[#5A6D53]">
             <Mail className="size-4" aria-hidden="true" />
@@ -138,18 +123,6 @@ export function NewsletterForm() {
           </div>
         )}
       </form>
-
-      {/* Trust Micro-Bullets */}
-      <div className="mt-4 flex flex-wrap items-center gap-3 border-t border-[#B69A58]/25 pt-3 text-[11px] text-[#4E5C48]">
-        <div className="flex items-center gap-1">
-          <ShieldCheck className="size-3 text-[#285732]" />
-          <span>Zero spam</span>
-        </div>
-        <span>•</span>
-        <div>Fortnightly digests</div>
-        <span>•</span>
-        <div>Instant unsubscribe</div>
-      </div>
     </div>
   );
 }

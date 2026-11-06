@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Compass, Feather, Sprout, ArrowRight, CheckCircle2 } from "lucide-react";
-import { PageHero } from "@/components/layout";
+import { PageHero, SectionHeading } from "@/components/layout";
 import { Button } from "@/components/ui/button";
 import { useBooking } from "@/components/booking";
 import { stats } from "@/data/site";

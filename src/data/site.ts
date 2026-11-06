@@ -71,6 +71,7 @@ export type ServiceSolution = {
   benefits: string[];
   whoCanJoin: string;
   setupNeeded: string;
+  matRequirement: string;
   iconName: "cyclic" | "yoganidra" | "tratak" | "chairyoga" | "pranayama" | "suryanamaskar";
   videoType?: "youtube" | "html5";
   videoSource?: string;
@@ -91,10 +92,11 @@ export const serviceSolutions: ServiceSolution[] = [
     benefits: [
       "Rapidly breaks stress escalation loops",
       "Combines slow mindful movement with sensory stillness",
-      "Can be practiced on chair or floor without strenuous physical exertion",
+      "Alternates standing postures with deep restorative relaxation on the mat",
     ],
     whoCanJoin: "Students Std 8th+, corporate executives, educators, anyone battling restless anxiety.",
-    setupNeeded: "No mats required. Can be done in conference rooms, auditoriums, or classrooms.",
+    setupNeeded: "Yoga mats required. Quiet hall, studio, or open conference space with mats.",
+    matRequirement: "Yoga Mat Needed",
     iconName: "cyclic",
     videoType: "youtube",
     videoSource: "https://www.youtube-nocookie.com/embed/kPMaIj4WPrY",
@@ -116,7 +118,8 @@ export const serviceSolutions: ServiceSolution[] = [
       "Proven to enhance information consolidation and memory retention before tests",
     ],
     whoCanJoin: "All age groups (Std 8th to senior executives). Zero flexibility needed.",
-    setupNeeded: "Quiet room, chairs or reclining floor mats.",
+    setupNeeded: "Quiet room, yoga mats with blankets, or comfortable reclining chairs.",
+    matRequirement: "Mats or Chairs",
     iconName: "yoganidra",
     videoType: "youtube",
     videoSource: "https://www.youtube-nocookie.com/embed/jb24UmmjqFk",
@@ -138,7 +141,8 @@ export const serviceSolutions: ServiceSolution[] = [
       "Calms racing thoughts and improves sleep onset",
     ],
     whoCanJoin: "Students 12+ and working professionals. Highly recommended for exam batches & developers.",
-    setupNeeded: "Dimly lit room; candle stand or focal point cards provided.",
+    setupNeeded: "Dimly lit room; chairs or seated floor space. Candle stands or focal point cards provided.",
+    matRequirement: "No Mat Required",
     iconName: "tratak",
     videoType: "youtube",
     videoSource: "https://www.youtube-nocookie.com/embed/_IYH3foigeo",
@@ -160,7 +164,8 @@ export const serviceSolutions: ServiceSolution[] = [
       "Boosts oxygen circulation and alertness without mid-afternoon energy crashes",
     ],
     whoCanJoin: "Anyone sitting for more than 4 hours a day.",
-    setupNeeded: "Standard chairs in conference room, classroom, or auditorium.",
+    setupNeeded: "Standard chairs in conference room, classroom, or staff room. Zero mats needed.",
+    matRequirement: "No Mat Required",
     iconName: "chairyoga",
     videoType: "youtube",
     videoSource: "https://www.youtube-nocookie.com/embed/tAUf7aajBWE",
@@ -182,7 +187,8 @@ export const serviceSolutions: ServiceSolution[] = [
       "100% practical tools students and employees can use privately anywhere",
     ],
     whoCanJoin: "Everyone.",
-    setupNeeded: "Any seated environment.",
+    setupNeeded: "Any seated chair or classroom environment. Zero mats needed.",
+    matRequirement: "No Mat Required",
     iconName: "pranayama",
     videoType: "youtube",
     videoSource: "https://www.youtube-nocookie.com/embed/8VwufJrUhic",
@@ -204,7 +210,8 @@ export const serviceSolutions: ServiceSolution[] = [
       "Instills self-discipline and grounded morning routine",
     ],
     whoCanJoin: "Beginners to advanced practitioners.",
-    setupNeeded: "Open floor or assembly hall.",
+    setupNeeded: "Yoga mats required. Open floor, studio, or assembly hall with mats.",
+    matRequirement: "Yoga Mat Needed",
     iconName: "suryanamaskar",
     videoType: "youtube",
     videoSource: "https://www.youtube-nocookie.com/embed/_ENYL8qxKx0",
@@ -413,7 +420,7 @@ export const programs: Program[] = [
     benefits: [
       "Instant physiological calm and reduced emotional reactivity",
       "Ideal for high-stress exam periods and corporate crunch times",
-      "Can be done seated or standing with zero mats",
+      "Combines standing postures with deep restorative relaxation on the mat",
     ],
     level: "All levels",
     image: cyclicMeditation,

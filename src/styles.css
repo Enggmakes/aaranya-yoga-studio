@@ -107,6 +107,33 @@
     -webkit-tap-highlight-color: transparent;
     -webkit-text-size-adjust: 100%;
   }
+  /* Global Luxury Botanical & Antique Gold Scrollbars (Replaces bulky Windows OS scrollbar) */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(182, 154, 88, 0.4) transparent;
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(182, 154, 88, 0.38);
+    border-radius: 9999px;
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    transition: background 0.2s ease;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(24, 56, 32, 0.7);
+  }
+  ::-webkit-scrollbar-button {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -210,6 +237,14 @@
   text-transform: uppercase;
   color: var(--color-olive);
   font-weight: 600;
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @utility shadow-soft {

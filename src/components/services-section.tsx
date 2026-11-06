@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 import {
   RotateCcw,
   Moon,
@@ -77,6 +78,7 @@ function getServiceIcon(iconName: ServiceSolution["iconName"]) {
 export function ServicesSection() {
   const [selectedService, setSelectedService] = useState<ServiceSolution | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [activeTab, setActiveTab] = useState<"video" | "details">("video");
   const { openBooking } = useBooking();
 
   return (
@@ -127,7 +129,7 @@ export function ServicesSection() {
           </h2>
 
           <p className="mt-4 text-base sm:text-lg leading-relaxed text-[#4E5C48]">
-            No mats, no confusing jargon. Clear, practical practices designed specifically so both a
+            No confusing jargon — just clear, practical practices designed specifically so both a
             <strong className="text-[#142F1C] font-semibold"> School Principal </strong>
             and an
             <strong className="text-[#142F1C] font-semibold"> HR Manager </strong>
@@ -180,7 +182,7 @@ export function ServicesSection() {
                 <div className="mt-7 pt-5 border-t border-[#B69A58]/20 flex items-center justify-between">
                   <div className="flex items-center gap-2 text-xs font-medium text-[#777B50]">
                     <CheckCircle2 className="size-3.5 text-[#285732]" />
-                    <span>No mat required</span>
+                    <span>{service.matRequirement}</span>
                   </div>
 
                   <Button
@@ -188,6 +190,7 @@ export function ServicesSection() {
                     size="sm"
                     onClick={() => {
                       setIsPlaying(false);
+                      setActiveTab("video");
                       setSelectedService(service);
                     }}
                     className="group-hover:border-[#183820] group-hover:bg-[#183820] group-hover:text-[#FFF8EC]"
@@ -243,132 +246,211 @@ export function ServicesSection() {
         }}
       >
         {selectedService && (
-          <DialogContent className="max-w-2xl border-[#B69A58]/40 bg-[#FFFDF9] p-6 sm:p-9 shadow-2xl rounded-3xl">
-            <DialogHeader>
+          <DialogContent className="max-w-2xl max-h-[92vh] overflow-y-auto no-scrollbar border-[#B69A58]/40 bg-[#FFFDF9] p-5 sm:p-7 shadow-2xl rounded-3xl overscroll-contain">
+            <DialogHeader className="space-y-1">
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#777B50]">
                 <span>{selectedService.duration} Workshop</span>
                 <span>•</span>
-                <span className="text-[#285732]">Zero Mats Needed</span>
+                <span className={selectedService.matRequirement.includes("No Mat") ? "text-[#285732]" : "text-[#B69A58] font-bold"}>
+                  {selectedService.matRequirement}
+                </span>
               </div>
               <DialogTitle className="font-['Cormorant_Garamond',Georgia,serif] text-2xl sm:text-3xl font-medium text-[#142F1C]">
                 {selectedService.name}
               </DialogTitle>
-              <DialogDescription className="text-sm font-medium text-[#777B50]">
+              <DialogDescription className="text-xs sm:text-sm font-medium text-[#777B50]">
                 {selectedService.bestFor}
               </DialogDescription>
             </DialogHeader>
 
-            <div className="mt-4 space-y-5 text-sm text-[#4E5C48]">
-              {/* Live Playable Practice Video / Photorealistic Cover Player */}
-              <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-[#B69A58]/50 shadow-[0_12px_32px_rgba(24,56,32,0.18)] group isolate bg-[#102A1B]">
-                {isPlaying && selectedService.videoSource ? (
-                  <div className="relative h-full w-full bg-black">
-                    {selectedService.videoType === "html5" ? (
-                      <video
-                        src={selectedService.videoSource}
-                        controls
-                        autoPlay
-                        loop
-                        playsInline
-                        className="h-full w-full object-cover rounded-2xl"
-                      />
-                    ) : (
-                      <iframe
-                        src={`${selectedService.videoSource}?autoplay=1&mute=0&controls=1&rel=0`}
-                        title={selectedService.videoTitle || selectedService.name}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen
-                        className="h-full w-full rounded-2xl border-0"
-                      />
-                    )}
+            {/* Dynamic Themed Interactive Navigation (Replaces Clunky OS Scrollbars) */}
+            <div className="mt-3 grid grid-cols-2 gap-1.5 rounded-2xl border border-[#B69A58]/35 bg-[#F5EBDD]/60 p-1 text-xs font-semibold">
+              <button
+                type="button"
+                onClick={() => setActiveTab("video")}
+                className={cn(
+                  "flex items-center justify-center gap-2 rounded-xl py-2 px-3 transition-all duration-200 cursor-pointer",
+                  activeTab === "video"
+                    ? "bg-[#183820] text-[#FFF8EC] shadow-sm font-medium"
+                    : "text-[#4E5C48] hover:text-[#142F1C] hover:bg-[#B69A58]/15"
+                )}
+              >
+                <Play className="size-3.5 fill-current" />
+                <span>Practice Video</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setIsPlaying(false);
+                  setActiveTab("details");
+                }}
+                className={cn(
+                  "flex items-center justify-center gap-2 rounded-xl py-2 px-3 transition-all duration-200 cursor-pointer",
+                  activeTab === "details"
+                    ? "bg-[#183820] text-[#FFF8EC] shadow-sm font-medium"
+                    : "text-[#4E5C48] hover:text-[#142F1C] hover:bg-[#B69A58]/15"
+                )}
+              >
+                <Sparkles className="size-3.5 text-[#B69A58]" />
+                <span>Benefits &amp; Setup</span>
+              </button>
+            </div>
 
-                    {/* Return to Overview Button */}
-                    <button
-                      type="button"
-                      onClick={() => setIsPlaying(false)}
-                      className="absolute top-3 right-3 z-20 rounded-full bg-black/75 px-3 py-1 text-xs font-medium text-white backdrop-blur-md transition-all hover:bg-black hover:scale-105 cursor-pointer shadow-md border border-white/20"
-                    >
-                      ✕ Close Video
-                    </button>
-                  </div>
-                ) : (
-                  <>
-                    {/* Photorealistic Video Backdrop from Real Practice Photography */}
-                    <img
-                      src={getServicePoster(selectedService.iconName)}
-                      alt={`${selectedService.name} practice walkthrough video preview`}
-                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#102A1B]/90 via-[#102A1B]/40 to-black/30" />
+            {/* Tab 1: Video Walkthrough & Core What It Is */}
+            {activeTab === "video" && (
+              <div className="mt-4 space-y-4 fade-up">
+                {/* Live Playable Practice Video / Photorealistic Cover Player */}
+                <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-[#B69A58]/50 shadow-[0_12px_32px_rgba(24,56,32,0.18)] group isolate bg-[#102A1B]">
+                  {isPlaying && selectedService.videoSource ? (
+                    <div className="relative h-full w-full bg-black">
+                      {selectedService.videoType === "html5" ? (
+                        <video
+                          src={selectedService.videoSource}
+                          controls
+                          autoPlay
+                          loop
+                          playsInline
+                          className="h-full w-full object-cover rounded-2xl"
+                        />
+                      ) : (
+                        <iframe
+                          src={`${selectedService.videoSource}?autoplay=1&mute=0&controls=1&rel=0`}
+                          title={selectedService.videoTitle || selectedService.name}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowFullScreen
+                          className="h-full w-full rounded-2xl border-0"
+                        />
+                      )}
 
-                    {/* Center Cinematic Play Button with Liquid Ripple Glow */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-[#FFF8EC] z-10">
+                      {/* Return to Overview Button */}
                       <button
                         type="button"
-                        onClick={() => setIsPlaying(true)}
-                        className="group/btn relative grid size-16 place-items-center rounded-full bg-[#B69A58] text-[#102A1B] shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer focus:outline-none focus:ring-4 focus:ring-[#B69A58]/50"
-                        aria-label={`Play real practice video walkthrough for ${selectedService.name}`}
+                        onClick={() => setIsPlaying(false)}
+                        className="absolute top-3 right-3 z-20 rounded-full bg-black/75 px-3 py-1 text-xs font-medium text-white backdrop-blur-md transition-all hover:bg-black hover:scale-105 cursor-pointer shadow-md border border-white/20"
                       >
-                        <span className="absolute -inset-2 rounded-full bg-[#B69A58]/40 animate-ping opacity-75" />
-                        <Play className="size-7 ml-1 fill-current" />
+                        ✕ Close Video
                       </button>
-                      <p className="mt-3 font-['Cormorant_Garamond',Georgia,serif] text-xl font-medium text-[#FFF8EC] drop-shadow-md">
-                        30-Second Practice Walkthrough
-                      </p>
-                      <p className="mt-1 text-xs text-[#E2D4BF] max-w-sm drop-shadow-sm">
-                        Click to watch the real {selectedService.name} session walkthrough.
-                      </p>
                     </div>
-                  </>
-                )}
-              </div>
+                  ) : (
+                    <>
+                      {/* Photorealistic Video Backdrop from Real Practice Photography */}
+                      <img
+                        src={getServicePoster(selectedService.iconName)}
+                        alt={`${selectedService.name} practice walkthrough video preview`}
+                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#102A1B]/90 via-[#102A1B]/40 to-black/30" />
 
-              {/* What It Is */}
-              <div>
-                <h4 className="font-serif text-base font-semibold text-[#142F1C]">What It Is:</h4>
-                <p className="mt-1 leading-relaxed text-[#4E5C48]">{selectedService.whatItIs}</p>
-              </div>
-
-              {/* Core Benefits */}
-              <div>
-                <h4 className="font-serif text-base font-semibold text-[#142F1C]">Key Benefits & Outcomes:</h4>
-                <ul className="mt-2 grid gap-2">
-                  {selectedService.benefits.map((b, i) => (
-                    <li key={i} className="flex items-start gap-2.5">
-                      <CheckCircle2 className="size-4 shrink-0 text-[#285732] mt-0.5" />
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Who Can Join & Setup */}
-              <div className="grid gap-3 sm:grid-cols-2 rounded-2xl border border-[#B69A58]/30 bg-[#F5EBDD]/40 p-4">
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-[#777B50]">
-                    Who Can Join
-                  </p>
-                  <p className="mt-1 text-xs font-medium text-[#142F1C]">
-                    {selectedService.whoCanJoin}
-                  </p>
+                      {/* Center Cinematic Play Button with Liquid Ripple Glow */}
+                      <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-[#FFF8EC] z-10">
+                        <button
+                          type="button"
+                          onClick={() => setIsPlaying(true)}
+                          className="group/btn relative grid size-16 place-items-center rounded-full bg-[#B69A58] text-[#102A1B] shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer focus:outline-none focus:ring-4 focus:ring-[#B69A58]/50"
+                          aria-label={`Play real practice video walkthrough for ${selectedService.name}`}
+                        >
+                          <span className="absolute -inset-2 rounded-full bg-[#B69A58]/40 animate-ping opacity-75" />
+                          <Play className="size-7 ml-1 fill-current" />
+                        </button>
+                        <p className="mt-3 font-['Cormorant_Garamond',Georgia,serif] text-xl font-medium text-[#FFF8EC] drop-shadow-md">
+                          30-Second Practice Walkthrough
+                        </p>
+                        <p className="mt-1 text-xs text-[#E2D4BF] max-w-sm drop-shadow-sm">
+                          Click to watch the real {selectedService.name} session walkthrough.
+                        </p>
+                      </div>
+                    </>
+                  )}
                 </div>
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-[#777B50]">
-                    Setup Required
-                  </p>
-                  <p className="mt-1 text-xs font-medium text-[#142F1C]">
-                    {selectedService.setupNeeded}
+
+                {/* What It Is */}
+                <div className="rounded-2xl border border-[#B69A58]/20 bg-[#F5EBDD]/35 p-4">
+                  <h4 className="font-serif text-base font-semibold text-[#142F1C]">What It Is:</h4>
+                  <p className="mt-1 leading-relaxed text-[#4E5C48] text-xs sm:text-sm">
+                    {selectedService.whatItIs}
                   </p>
                 </div>
               </div>
+            )}
 
-              {/* CTA Inside Modal */}
-              <div className="pt-3 flex flex-wrap items-center justify-end gap-3">
-                <Button variant="pillOutline" onClick={() => setSelectedService(null)}>
+            {/* Tab 2: Benefits, Target Audience & Setup Requirements */}
+            {activeTab === "details" && (
+              <div className="mt-4 space-y-4 fade-up text-sm">
+                {/* Target Problem & Outcome */}
+                <div className="rounded-2xl border border-[#B69A58]/25 bg-[#F5EBDD]/40 p-4">
+                  <div className="flex items-center justify-between">
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-[#777B50]">
+                      Target Problem Solved
+                    </p>
+                    <span className="text-[11px] font-semibold text-[#183820] bg-white/70 px-2 py-0.5 rounded-full border border-[#B69A58]/20">
+                      {selectedService.targetAudience}
+                    </span>
+                  </div>
+                  <p className="mt-1.5 text-sm font-semibold text-[#142F1C]">
+                    {selectedService.oneLine}
+                  </p>
+                  <p className="mt-2 text-xs text-[#4E5C48] leading-relaxed">
+                    <strong className="text-[#142F1C]">Direct Outcome:</strong> {selectedService.outcome}
+                  </p>
+                </div>
+
+                {/* Key Benefits */}
+                <div className="rounded-2xl border border-[#B69A58]/20 bg-[#FFFDF9] p-4">
+                  <h4 className="font-serif text-base font-semibold text-[#142F1C]">Key Benefits &amp; Outcomes:</h4>
+                  <ul className="mt-2.5 grid gap-2">
+                    {selectedService.benefits.map((b, i) => (
+                      <li key={i} className="flex items-start gap-2.5">
+                        <CheckCircle2 className="size-4 shrink-0 text-[#285732] mt-0.5" />
+                        <span className="text-xs sm:text-sm text-[#4E5C48]">{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Who Can Join & Setup Required */}
+                <div className="grid gap-3 sm:grid-cols-2 rounded-2xl border border-[#B69A58]/30 bg-[#F5EBDD]/30 p-4">
+                  <div>
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-[#777B50]">
+                      Who Can Join
+                    </p>
+                    <p className="mt-1 text-xs font-medium text-[#142F1C] leading-snug">
+                      {selectedService.whoCanJoin}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-[#777B50]">
+                      Setup Required &amp; Equipment
+                    </p>
+                    <p className="mt-1 text-xs font-medium text-[#142F1C] leading-snug">
+                      {selectedService.setupNeeded}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Dynamic Themed Footer */}
+            <div className="mt-4 pt-3 border-t border-[#B69A58]/20 flex flex-wrap items-center justify-between gap-3">
+              <button
+                type="button"
+                onClick={() => {
+                  setIsPlaying(false);
+                  setActiveTab(activeTab === "video" ? "details" : "video");
+                }}
+                className="text-xs font-semibold text-[#777B50] hover:text-[#183820] underline underline-offset-4 cursor-pointer transition-colors"
+              >
+                {activeTab === "video"
+                  ? "View benefits & setup requirements →"
+                  : "← Watch practice video walkthrough"}
+              </button>
+
+              <div className="flex items-center gap-2">
+                <Button variant="pillOutline" size="sm" onClick={() => setSelectedService(null)}>
                   Close
                 </Button>
                 <Button
                   variant="pill"
+                  size="sm"
                   onClick={() => {
                     const prog = selectedService.id;
                     setSelectedService(null);
@@ -376,8 +458,8 @@ export function ServicesSection() {
                   }}
                   className="bg-[#183820] text-[#FFF8EC] hover:bg-[#102A1B]"
                 >
-                  <span>Book Demo for This Practice</span>
-                  <ArrowRight className="size-4" />
+                  <span>Book Demo Session</span>
+                  <ArrowRight className="size-3.5 ml-1" />
                 </Button>
               </div>
             </div>

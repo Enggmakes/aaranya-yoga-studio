@@ -5,7 +5,7 @@
 - [Home](https://irasyogahouse.vercel.app/): Overview of institutional wellness, dual booking demos, Problem -> Solution services, and client testimonials.
 - [For Schools](https://irasyogahouse.vercel.app/schools): Yoga for Exam Stress & Student Well-being (Exam Calm for Std 8th–12th, Daily Focus Batches, Teacher Recharge, Pre/Post reports, student certificates).
 - [For Corporates](https://irasyogahouse.vercel.app/corporate): Workplace wellness, De-Stress at Desk, Productivity & Better Sleep, and Leadership Focus. Multilingual in English, Hindi & Marathi.
-- [Tratak Focus](https://irasyogahouse.vercel.app/tratak): Ancient gazing meditation (Jyoti & Bindu Tratak) for laser concentration, curing mobile screen addiction, and eye fatigue relief.
+- [For Individuals](https://irasyogahouse.vercel.app/individuals): Personalized 1-on-1 yoga guidance, beginner foundations, and restorative breathwork shaped around individual biomechanics, goals, and schedules.
 - [Services Matrix](https://irasyogahouse.vercel.app/programs): 6 Problem -> Solution practices: Cyclic Meditation, Yoga Nidra, Tratak, Chair Yoga, Breathwork, and Surya Namaskar.
 - [About](https://irasyogahouse.vercel.app/about): Our founding ethos, teaching pillars, and experienced instructors.
 - [Contact & Inquiries](https://irasyogahouse.vercel.app/contact): Direct demo reservations, institutional proposals, and location details in Pune, Maharashtra.

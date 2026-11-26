@@ -45,12 +45,12 @@ const NAV_ITEMS: FooterNavItem[] = [
     description: "Workplace desk yoga & burnout recovery",
   },
   {
-    id: "tratak",
-    label: "Tratak",
-    to: "/tratak",
+    id: "individuals",
+    label: "Individuals",
+    to: "/individuals",
     iconName: "retreats",
     angle: 198, // Top-Left (72° clockwise from Corporate)
-    description: "Gazing meditation for sharp concentration",
+    description: "1-on-1 guidance & personal practice",
   },
 ];
 

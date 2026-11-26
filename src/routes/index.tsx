@@ -3,6 +3,7 @@ import {
   ArrowRight,
   GraduationCap,
   Building,
+  User,
   Eye,
   CheckCircle2,
   Sparkles,
@@ -226,10 +227,10 @@ function Home() {
         <div className="container-x">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <h2 className="font-['Cormorant_Garamond',Georgia,serif] text-2xl sm:text-3xl font-medium text-[#142F1C]">
-              Tailored Programs for Educational &amp; Professional Spaces
+              Tailored Programs for Schools, Corporates &amp; Individuals
             </h2>
             <p className="mt-1 text-sm text-[#4E5C48]">
-              Select your organization type to explore specialized formats, curriculum, and deliverables.
+              Select your pathway to explore specialized formats, curriculum, and deliverables.
             </p>
           </div>
 
@@ -286,28 +287,28 @@ function Home() {
               </div>
             </Link>
 
-            {/* Tratak Card */}
+            {/* For Individuals Card */}
             <Link
-              to="/tratak"
+              to="/individuals"
               className="group relative flex flex-col justify-between rounded-3xl border border-[#B69A58]/40 bg-[#FFFDF9] p-7 shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-[#183820] hover:shadow-soft"
             >
               <div>
                 <span className="grid size-12 place-items-center rounded-2xl bg-[#183820] text-[#FFF8EC] shadow-xs">
-                  <Eye className="size-6" />
+                  <User className="size-6" />
                 </span>
                 <span className="mt-4 inline-block text-[11px] font-bold uppercase tracking-wider text-[#777B50]">
-                  Mind Power &amp; Focus
+                  1-on-1 &amp; Studio Practice
                 </span>
                 <h3 className="mt-1 font-['Cormorant_Garamond',Georgia,serif] text-2xl font-semibold text-[#142F1C]">
-                  Tratak Gazing Meditation
+                  For Individuals
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-[#4E5C48]">
-                  Scientific candle flame and focal point gazing that cures screen fatigue, trains
-                  memory, and stops racing thoughts.
+                  Personalized 1-on-1 private attention and beginner-friendly small batches shaped
+                  around your body, goals, and daily schedule. Zero judgment.
                 </p>
               </div>
               <div className="mt-6 flex items-center gap-1.5 text-xs font-semibold text-[#183820]">
-                <span>Discover Tratak Method</span>
+                <span>Explore Individual Programs</span>
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
               </div>
             </Link>

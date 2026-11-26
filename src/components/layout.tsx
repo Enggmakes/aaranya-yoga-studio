@@ -11,7 +11,7 @@ export const navItems = [
   { to: "/", label: "Home" },
   { to: "/schools", label: "For Schools" },
   { to: "/corporate", label: "For Corporates" },
-  { to: "/tratak", label: "Tratak Focus" },
+  { to: "/individuals", label: "For Individuals" },
   { to: "/programs", label: "Services" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },

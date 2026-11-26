@@ -133,7 +133,7 @@ function SchoolsPage() {
               <Brain className="size-4 text-[#B69A58]" />
               <span>The Student Challenge</span>
             </span>
-            <h2 className="mt-3 font-['Cormorant_Garamond',Georgia,serif] text-3xl sm:text-4xl font-semibold text-[#142F1C]">
+            <h2 className="mt-3 font-['Cormorant_Garamond',Georgia,serif] text-3xl sm:text-4xl font-bold text-[#142F1C]">
               The Crisis in Modern Classrooms: Screen Fatigue &amp; Exam Anxiety
             </h2>
             <p className="mt-4 text-base sm:text-lg leading-relaxed text-[#4E5C48]">
@@ -156,7 +156,7 @@ function SchoolsPage() {
             <span className="text-xs font-bold uppercase tracking-widest text-[#777B50]">
               Tailored Curriculum
             </span>
-            <h2 className="mt-2 font-['Cormorant_Garamond',Georgia,serif] text-3xl sm:text-4xl font-medium text-[#142F1C]">
+            <h2 className="mt-2 font-['Cormorant_Garamond',Georgia,serif] text-3xl sm:text-4xl font-bold text-[#142F1C]">
               Three Purpose-Built School Modules
             </h2>
             <p className="mt-2 text-sm sm:text-base text-[#4E5C48]">

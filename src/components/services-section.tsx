@@ -124,7 +124,7 @@ export function ServicesSection() {
             <span>Problem → Solution Architecture</span>
           </div>
 
-          <h2 className="mt-4 font-['Cormorant_Garamond',Georgia,serif] text-3xl font-medium tracking-tight text-[#142F1C] sm:text-4xl lg:text-5xl">
+          <h2 className="mt-4 font-['Cormorant_Garamond',Georgia,serif] text-3xl font-bold tracking-tight text-[#142F1C] sm:text-4xl lg:text-5xl">
             Science-Based Wellness That Delivers Measurable Results
           </h2>
 
@@ -158,7 +158,7 @@ export function ServicesSection() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="mt-6 font-['Cormorant_Garamond',Georgia,serif] text-2xl font-semibold text-[#142F1C] transition-colors group-hover:text-[#183820]">
+                  <h3 className="mt-6 font-['Cormorant_Garamond',Georgia,serif] text-2xl font-bold text-[#142F1C] transition-colors group-hover:text-[#183820]">
                     {service.name}
                   </h3>
 
@@ -207,7 +207,7 @@ export function ServicesSection() {
         {/* Quick Audience Segue */}
         <div className="mt-16 rounded-3xl border border-[#B69A58]/40 bg-gradient-to-r from-[#F5EBDD]/90 via-[#FFFDF9] to-[#F5EBDD]/90 p-8 sm:p-10 text-center shadow-soft">
           <div className="max-w-2xl mx-auto">
-            <h3 className="font-['Cormorant_Garamond',Georgia,serif] text-2xl sm:text-3xl font-medium text-[#142F1C]">
+            <h3 className="font-['Cormorant_Garamond',Georgia,serif] text-2xl sm:text-3xl font-bold text-[#142F1C]">
               Need a Custom Workshop for Your Institution?
             </h3>
             <p className="mt-2 text-sm sm:text-base text-[#4E5C48]">
@@ -255,7 +255,7 @@ export function ServicesSection() {
                   {selectedService.matRequirement}
                 </span>
               </div>
-              <DialogTitle className="font-['Cormorant_Garamond',Georgia,serif] text-2xl sm:text-3xl font-medium text-[#142F1C]">
+              <DialogTitle className="font-['Cormorant_Garamond',Georgia,serif] text-2xl sm:text-3xl font-bold text-[#142F1C]">
                 {selectedService.name}
               </DialogTitle>
               <DialogDescription className="text-xs sm:text-sm font-medium text-[#777B50]">

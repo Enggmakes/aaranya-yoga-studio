@@ -37,7 +37,7 @@ export function Logo() {
         <span className="font-serif text-2xl font-bold tracking-tight text-primary leading-none">
           IRA&apos;s
         </span>
-        <span className="text-[10px] tracking-[0.24em] uppercase text-olive font-medium mt-0.5">
+        <span className="text-[10px] tracking-[0.24em] uppercase text-olive font-bold mt-0.5">
           Yoga House
         </span>
       </span>
@@ -110,13 +110,13 @@ export function SiteHeader() {
 
           {/* Desktop Navigation */}
           <nav aria-label="Main" className="hidden lg:block">
-            <ul className="flex items-center gap-9 text-sm font-medium">
+            <ul className="flex items-center gap-9 text-sm font-semibold">
               {navItems.map((n) => (
                 <li key={n.to}>
                   <Link
                     to={n.to}
                     activeOptions={{ exact: true }}
-                    className="relative py-2 text-foreground/75 transition-colors duration-150 hover:text-primary data-[status=active]:text-primary data-[status=active]:font-semibold data-[status=active]:after:absolute data-[status=active]:after:inset-x-0 data-[status=active]:after:bottom-0 data-[status=active]:after:h-0.5 data-[status=active]:after:bg-primary data-[status=active]:after:rounded-full"
+                    className="relative py-2 text-foreground/85 transition-colors duration-150 hover:text-primary data-[status=active]:text-primary data-[status=active]:font-bold data-[status=active]:after:absolute data-[status=active]:after:inset-x-0 data-[status=active]:after:bottom-0 data-[status=active]:after:h-0.5 data-[status=active]:after:bg-primary data-[status=active]:after:rounded-full"
                   >
                     {n.label}
                   </Link>
@@ -192,7 +192,7 @@ export function SiteHeader() {
                     to={n.to}
                     activeOptions={{ exact: true }}
                     onClick={() => setOpen(false)}
-                    className="flex items-center justify-between py-4 font-serif text-2xl text-foreground transition-colors hover:text-primary data-[status=active]:text-primary data-[status=active]:font-semibold"
+                    className="flex items-center justify-between py-4 font-serif text-2xl font-bold text-foreground transition-colors hover:text-primary data-[status=active]:text-primary"
                   >
                     <span>{n.label}</span>
                     <span className="text-sm font-sans text-muted-foreground">→</span>
@@ -257,7 +257,7 @@ export function PageHero({
                 <span>{eyebrow}</span>
               </div>
 
-              <h1 className="mt-4 font-['Cormorant_Garamond',Georgia,serif] text-4xl font-semibold leading-[1.08] text-[#142F1C] sm:text-5xl lg:text-6xl xl:text-7xl">
+              <h1 className="mt-4 font-['Cormorant_Garamond',Georgia,serif] text-4xl font-bold leading-[1.08] text-[#142F1C] sm:text-5xl lg:text-6xl xl:text-7xl">
                 {title}
               </h1>
 
@@ -312,7 +312,7 @@ export function PageHero({
               <span>{eyebrow}</span>
             </div>
 
-            <h1 className="mt-4 font-['Cormorant_Garamond',Georgia,serif] text-4xl font-semibold leading-[1.08] text-[#142F1C] sm:text-5xl lg:text-6xl xl:text-7xl">
+            <h1 className="mt-4 font-['Cormorant_Garamond',Georgia,serif] text-4xl font-bold leading-[1.08] text-[#142F1C] sm:text-5xl lg:text-6xl xl:text-7xl">
               {title}
             </h1>
 
@@ -342,7 +342,7 @@ export function SectionHeading({
   return (
     <div className={center ? "mx-auto max-w-[65ch] text-center" : "max-w-[65ch]"}>
       <p className="eyebrow">{eyebrow}</p>
-      <h2 className="mt-3 text-4xl font-semibold leading-tight text-primary md:text-5xl font-serif">
+      <h2 className="mt-3 text-4xl font-bold leading-tight text-primary md:text-5xl font-serif">
         {title}
       </h2>
       {intro && <p className="mt-4 text-muted-foreground leading-relaxed">{intro}</p>}

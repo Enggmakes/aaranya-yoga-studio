@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
   --font-editorial: "Newsreader", Georgia, serif;
   --font-cormorant: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -138,6 +138,7 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    font-weight: 450;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     overflow-x: clip;
@@ -158,13 +159,16 @@
   h3,
   h4 {
     font-family: var(--font-serif);
-    font-weight: 600;
-    line-height: 1.08;
-    -webkit-text-stroke: 0.25px currentColor;
+    font-weight: 700;
+    line-height: 1.1;
+    -webkit-text-stroke: 0.35px currentColor;
   }
   .font-serif {
-    font-weight: 600;
-    -webkit-text-stroke: 0.2px currentColor;
+    font-weight: 700;
+    -webkit-text-stroke: 0.25px currentColor;
+  }
+  [class*="font-['Cormorant_Garamond'"] {
+    -webkit-text-stroke: 0.25px currentColor;
   }
   /* Typography Rule: Cap body copy line lengths to max-w-[65ch] with leading-relaxed */
   p {

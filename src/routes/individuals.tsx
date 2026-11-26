@@ -205,7 +205,7 @@ export function IndividualsPage() {
                   <span className="grid size-11 place-items-center rounded-xl bg-[#183820] text-[#FFF8EC] shadow-xs">
                     <Icon className="size-5" />
                   </span>
-                  <h3 className="mt-4 font-['Cormorant_Garamond',Georgia,serif] text-xl font-semibold text-[#142F1C]">
+                  <h3 className="mt-4 font-['Cormorant_Garamond',Georgia,serif] text-xl font-bold text-[#142F1C]">
                     {pillar.title}
                   </h3>
                   <p className="mt-2 text-xs leading-relaxed text-[#4E5C48]">{pillar.desc}</p>
@@ -243,7 +243,7 @@ export function IndividualsPage() {
                   </span>
                 </div>
 
-                <h3 className="mt-4 font-['Cormorant_Garamond',Georgia,serif] text-2xl sm:text-3xl font-semibold text-[#142F1C]">
+                <h3 className="mt-4 font-['Cormorant_Garamond',Georgia,serif] text-2xl sm:text-3xl font-bold text-[#142F1C]">
                   {prog.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-[#4E5C48]">{prog.description}</p>
@@ -290,7 +290,7 @@ export function IndividualsPage() {
             <span className="text-xs font-semibold uppercase tracking-widest text-[#777B50]">
               Flexible Studio Access
             </span>
-            <h2 className="mt-1 font-['Cormorant_Garamond',Georgia,serif] text-3xl sm:text-4xl font-semibold text-[#142F1C]">
+            <h2 className="mt-1 font-['Cormorant_Garamond',Georgia,serif] text-3xl sm:text-4xl font-bold text-[#142F1C]">
               Membership &amp; Session Passes
             </h2>
             <p className="mt-2 text-sm text-[#4E5C48]">
@@ -317,7 +317,7 @@ export function IndividualsPage() {
                   <span className="text-xs font-medium uppercase tracking-wider text-[#777B50]">
                     {pkg.note}
                   </span>
-                  <h3 className="mt-1 font-['Cormorant_Garamond',Georgia,serif] text-2xl font-semibold text-[#142F1C]">
+                  <h3 className="mt-1 font-['Cormorant_Garamond',Georgia,serif] text-2xl font-bold text-[#142F1C]">
                     {pkg.name}
                   </h3>
 
@@ -379,7 +379,7 @@ export function IndividualsPage() {
           <span className="text-xs font-semibold uppercase tracking-widest text-[#D4AF37]">
             Begin Where You Are
           </span>
-          <h2 className="mt-2 font-['Cormorant_Garamond',Georgia,serif] text-3xl sm:text-4xl font-semibold leading-tight text-[#FFF8EC]">
+          <h2 className="mt-2 font-['Cormorant_Garamond',Georgia,serif] text-3xl sm:text-4xl font-bold leading-tight text-[#FFF8EC]">
             Ready to Begin Your Personal Practice?
           </h2>
           <p className="mt-3 text-sm text-[#FFF8EC]/85 leading-relaxed">

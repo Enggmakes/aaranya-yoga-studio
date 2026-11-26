@@ -91,7 +91,7 @@ function Contact() {
         {/* Double-Bezel Form Container */}
         <div className="rounded-[2.75rem] p-1.5 bg-black/[0.02] ring-1 ring-black/[0.05]">
           <div className="rounded-[calc(2.75rem-0.375rem)] bg-card p-6 shadow-bezel sm:p-10">
-            <h2 className="font-serif font-semibold text-3xl text-primary">
+            <h2 className="font-serif font-bold text-3xl text-primary">
               Send a Direct Enquiry
             </h2>
             <p className="mt-2 text-sm text-muted-foreground leading-relaxed">

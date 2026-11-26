@@ -129,9 +129,9 @@ function Home() {
             </div>
 
             {/* Headline */}
-            <h1 className="mt-4 font-['Cormorant_Garamond',Georgia,serif] text-4xl font-semibold leading-[1.08] text-[#142F1C] sm:text-6xl xl:text-7xl">
+            <h1 className="mt-4 font-['Cormorant_Garamond',Georgia,serif] text-4xl font-bold leading-[1.08] text-[#142F1C] sm:text-6xl xl:text-7xl">
               Yoga for Focused Students &amp; <br />
-              <em className="italic text-[#777B50] font-normal">Stress-Free</em> Teams
+              <em className="italic text-[#777B50] font-medium">Stress-Free</em> Teams
             </h1>
 
             {/* Subtext */}
@@ -226,7 +226,7 @@ function Home() {
       <section className="bg-[#F5EBDD]/70 py-12 sm:py-16 border-y border-[#B69A58]/30">
         <div className="container-x">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <h2 className="font-['Cormorant_Garamond',Georgia,serif] text-2xl sm:text-3xl font-medium text-[#142F1C]">
+            <h2 className="font-['Cormorant_Garamond',Georgia,serif] text-2xl sm:text-3xl font-bold text-[#142F1C]">
               Tailored Programs for Schools, Corporates &amp; Individuals
             </h2>
             <p className="mt-1 text-sm text-[#4E5C48]">
@@ -247,7 +247,7 @@ function Home() {
                 <span className="mt-4 inline-block text-[11px] font-bold uppercase tracking-wider text-[#777B50]">
                   For Educational Institutions
                 </span>
-                <h3 className="mt-1 font-['Cormorant_Garamond',Georgia,serif] text-2xl font-semibold text-[#142F1C]">
+                <h3 className="mt-1 font-['Cormorant_Garamond',Georgia,serif] text-2xl font-bold text-[#142F1C]">
                   Yoga for Schools &amp; Colleges
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-[#4E5C48]">
@@ -273,7 +273,7 @@ function Home() {
                 <span className="mt-4 inline-block text-[11px] font-bold uppercase tracking-wider text-[#777B50]">
                   For Corporate &amp; IT Teams
                 </span>
-                <h3 className="mt-1 font-['Cormorant_Garamond',Georgia,serif] text-2xl font-semibold text-[#142F1C]">
+                <h3 className="mt-1 font-['Cormorant_Garamond',Georgia,serif] text-2xl font-bold text-[#142F1C]">
                   Yoga at Workplace
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-[#4E5C48]">
@@ -299,7 +299,7 @@ function Home() {
                 <span className="mt-4 inline-block text-[11px] font-bold uppercase tracking-wider text-[#777B50]">
                   1-on-1 &amp; Studio Practice
                 </span>
-                <h3 className="mt-1 font-['Cormorant_Garamond',Georgia,serif] text-2xl font-semibold text-[#142F1C]">
+                <h3 className="mt-1 font-['Cormorant_Garamond',Georgia,serif] text-2xl font-bold text-[#142F1C]">
                   For Individuals
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-[#4E5C48]">
@@ -349,7 +349,7 @@ function Home() {
             <Accordion type="single" collapsible className="w-full">
               {faqs.map((f, i) => (
                 <AccordionItem key={i} value={`faq-${i}`} className="border-[#B69A58]/30 py-1">
-                  <AccordionTrigger className="text-left font-serif text-xl sm:text-2xl text-[#142F1C] hover:no-underline hover:text-[#777B50]">
+                  <AccordionTrigger className="text-left font-serif font-bold text-xl sm:text-2xl text-[#142F1C] hover:no-underline hover:text-[#777B50]">
                     {f.q}
                   </AccordionTrigger>
                   <AccordionContent className="text-[#4E5C48] text-base leading-relaxed pt-1 pb-4">
@@ -374,7 +374,7 @@ function Home() {
         />
         <div className="absolute inset-0 -z-10 bg-[#142F1C]/85 backdrop-blur-[2px]" />
         <div className="container-x py-16 sm:py-24 text-center text-[#FFF8EC] md:py-32">
-          <h2 className="mx-auto max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl md:text-6xl font-serif">
+          <h2 className="mx-auto max-w-3xl text-4xl font-bold leading-tight sm:text-5xl md:text-6xl font-serif">
             Ready to Bring Measurable Calm to Your Campus or Office?
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-[#F5EBDD] text-base sm:text-lg leading-relaxed">

@@ -143,7 +143,7 @@ function Programs() {
 
             <div>
               <p className="eyebrow">{p.level}</p>
-              <h2 className="mt-3 font-serif font-semibold text-4xl text-primary md:text-5xl">
+              <h2 className="mt-3 font-serif font-bold text-4xl text-primary md:text-5xl">
                 {p.name}
               </h2>
               <p className="mt-4 text-muted-foreground leading-relaxed">{p.description}</p>
@@ -173,7 +173,7 @@ function Programs() {
       <section className="container-x pb-20 sm:pb-28">
         <div className="rounded-[2.5rem] border border-border/80 bg-secondary/50 p-8 sm:p-12 md:p-16 text-center">
           <p className="eyebrow mx-auto">Campus & Institutional Partnerships</p>
-          <h2 className="mx-auto mt-3 max-w-2xl text-3xl sm:text-4xl font-serif font-semibold text-primary">
+          <h2 className="mx-auto mt-3 max-w-2xl text-3xl sm:text-4xl font-serif font-bold text-primary">
             Bring grounded mindfulness directly to your school or college
           </h2>
           <p className="mx-auto mt-4 max-w-[65ch] text-muted-foreground leading-relaxed">

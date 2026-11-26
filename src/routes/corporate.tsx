@@ -112,7 +112,7 @@ function CorporatePage() {
                 <Coffee className="size-4 text-[#B69A58]" />
                 <span>Workplace Reality</span>
               </span>
-              <h2 className="mt-3 font-['Cormorant_Garamond',Georgia,serif] text-3xl sm:text-4xl font-semibold text-[#142F1C]">
+              <h2 className="mt-3 font-['Cormorant_Garamond',Georgia,serif] text-3xl sm:text-4xl font-bold text-[#142F1C]">
                 Sitting 8+ Hours Is Costing Your Team Their Health &amp; Productivity
               </h2>
               <p className="mt-4 text-base leading-relaxed text-[#4E5C48]">
@@ -155,7 +155,7 @@ function CorporatePage() {
             <span className="text-xs font-bold uppercase tracking-widest text-[#777B50]">
               Specialized Modules
             </span>
-            <h2 className="mt-2 font-['Cormorant_Garamond',Georgia,serif] text-3xl sm:text-4xl font-medium text-[#142F1C]">
+            <h2 className="mt-2 font-['Cormorant_Garamond',Georgia,serif] text-3xl sm:text-4xl font-bold text-[#142F1C]">
               Three High-Impact Corporate Programs
             </h2>
             <p className="mt-2 text-sm sm:text-base text-[#4E5C48]">
